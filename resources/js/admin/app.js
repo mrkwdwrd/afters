@@ -218,8 +218,8 @@ function getPosition(string, subString, index) {
 }
 
 window.initializeFroalaEditor = function () {
-	$('.froala_editor.lite').froalaEditor({
-		// TODO Move key to .env
+
+  const editorLite = new FroalaEditor('.froala_editor.lite', {
 		key: process.env.MIX_FROALA_EDITOR,
 		height: 200,
 
@@ -239,8 +239,8 @@ window.initializeFroalaEditor = function () {
 		],
 	});
 
-	$('.froala_editor').froalaEditor({
-		// TODO Move key to .env
+  const editor = new FroalaEditor('.froala_editor', {
+
 		key: process.env.MIX_FROALA_EDITOR,
 		height: 500,
 
@@ -279,12 +279,6 @@ window.initializeFroalaEditor = function () {
 		videoUploadMethod: 'POST',
 		videoMaxSize: 50 * 1024 * 1024,
 		videoAllowedTypes: ['avi', 'mov', 'mp4', 'm4v', 'mpeg', 'mpg', 'wmv', 'ogv'],
-	}).on('froalaEditor.file.error', function (e, editor, error, response) {
-		console.log(error);
-	}).on('froalaEditor.image.error', function (e, editor, error, response) {
-		console.log(error);
-	}).on('froalaEditor.video.error', function (e, editor, error, response) {
-		console.log(error);
 	});
 }
 

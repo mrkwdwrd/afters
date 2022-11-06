@@ -9,7 +9,7 @@ try {
     window.$ = window.jQuery = require('jquery');
     window.swal = require('sweetalert2');
     window.slick = require('slick-carousel/slick/slick.min.js');
-    window.froalaEditor = require('froala-editor/js/froala_editor.pkgd.min.js');
+    window.FroalaEditor = require('froala-editor/js/froala_editor.pkgd.min.js');
     window.dropzone = require('dropzone');
     window.selectize = require('selectize');
     window.JSONEditor = require('@json-editor/json-editor/dist/jsoneditor.min.js');
