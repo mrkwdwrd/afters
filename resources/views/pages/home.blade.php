@@ -1,16 +1,17 @@
 @extends('layouts.master')
 
-@section('page-title'){!! $cmsPage->title !!}@stop
-@section('meta-title'){!! $cmsPage->meta_title !!}@stop
+@section('page-title'){!! config('app.name') !!}@stop
+@section('meta-title'){!! config('app.name') !!}@stop
 @section('meta-keywords'){!! $cmsPage->meta_keywords !!}@stop
 @section('meta-description'){!! $cmsPage->meta_description !!}@stop
 @section('page-id'){!! $cmsPage->slug !!}@stop
 @section('main-class')@stop
 
 @section('og-image')
-    @if($cmsPage->hasMedia('images'))
+    <meta property="og:image" content="{!! url('img/clouds.jpg') !!}">
+    {{-- @if($cmsPage->hasMedia('images'))
         <meta property="og:image" content="{!! $cmsPage->getMedia('images')->first()->getUrl() !!}">
-    @endif
+    @endif --}}
 @stop
 
 @section('slider')

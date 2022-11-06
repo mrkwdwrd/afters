@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="{!! app()->getLocale() !!}" @yield('item-scope')>
 	<head>
-		<title>@if (View::hasSection('page-title'))@yield('page-title') | @endif{!! config('app.name') !!}</title>
+		<title>@yield('page-title')</title>
 		<meta charset="utf8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-		<meta name="title" content="@yield('meta-title')">
+		{{-- <meta name="title" content="@yield('meta-title')"> --}}
 		<meta name="keywords" content="@yield('meta-keywords')">
 		<meta name="description" content="@yield('meta-description')">
 		<meta name="csrf-token" content="{{ csrf_token() }}">

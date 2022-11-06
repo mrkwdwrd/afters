@@ -602,6 +602,7 @@ body {
         }
         #about {
             background-color: rgb(30, 30, 30);
+            color: $white;
             .container {
                 ::selection {
                     background: rgb(58, 72, 197);
@@ -620,15 +621,11 @@ body {
                     }
                 }
             }
-        }
-        #contact {
-            background-color: rgb(13, 23, 27);
-            color: $white;
-            ::selection {
-                background: rgb(255, 211, 14);
-                color: $black;
-            }
             ul.links {
+                display: inline-block;
+                margin: 0 auto;
+                width: 100%;
+                text-align: center;
                 li {
                     display: inline-block;
                     padding: 0 0.5em;
