@@ -1,0 +1,65 @@
+/node_modules
+/public/hot
+/public/ZendServer
+/storage/*.key
+/storage/debugbar
+/storage/media-library/temp/*
+/storage/app/public/*
+/storage/app/uploads/*
+/public/storage
+/public/uploads
+
+/vendor
+/.idea
+/.vscode
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+_ide_helper.php
+
+# built client css
+/public/css/vendor.css
+/public/css/vendor.css.map
+/public/css/app.css
+/public/css/app.css.map
+
+# built client js
+/public/js/vendor.js
+/public/js/vendor.js.map
+/public/js/app.js
+/public/js/app.js.map
+
+# built admin css
+/public/css/admin/vendor.css
+/public/css/admin/vendor.css.map
+/public/css/admin/app.css
+/public/css/admin/app.css.map
+
+# built admin js
+/public/js/admin/vendor.js
+/public/js/admin/vendor.js.map
+/public/js/admin/app.js
+/public/js/admin/app.js.map
+
+# manifest
+/public/js/manifest.js
+/public/js/manifest.js.map
+/public/mix-manifest.json
+/public/js/admin/manifest.js
+/public/js/admin/manifest.js.map
+
+/public/css/fonts/*
+
+/public/fonts/vendor
+/public/images/vendor
+
+#Some newer projects have been skipping these - explicitly include them
+!/resources/js/app.js
+!/resources/js/admin/app.js
