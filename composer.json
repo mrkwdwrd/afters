@@ -35,7 +35,7 @@
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",
-        "barryvdh/laravel-ide-helper": "^2.6",
+        "barryvdh/laravel-ide-helper": "^2.12",
         "beyondcode/laravel-dump-server": "^1.0",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
