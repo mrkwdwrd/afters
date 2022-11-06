@@ -1,0 +1,61 @@
+// Accordion
+.toggle {
+    &:nth-child(even) {
+        .title-name {
+            background: $light-grey;
+        }
+    }
+
+    &:nth-child(odd) {
+        .title-name {
+            background: $white;
+        }
+    }
+
+    .toggle-title {
+        position: relative;
+        display: block;
+
+        h3 {
+            margin: 0px;
+            cursor: pointer;
+        }
+        &.active h3 {}
+    }
+
+    .toggle-inner {
+        padding: 0 1em 1em 1em;
+        display: none;
+        div {
+            max-width: 100%;
+        }
+    }
+
+    .toggle-title {
+        .title-name {
+            display: block;
+            padding: 1em 3em 1em 1em;
+            border-radius: 5px;
+
+            &:after {
+                position: absolute;
+                content: '\002B';
+                width: 24px;
+                height: 24px;
+                -webkit-transition: all 0.3s ease;
+                -moz-transition: all 0.3s ease;
+                -o-transition: all 0.3s ease;
+                -ms-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+                right: 1em;
+                top: 50%;
+                transform: translateY(-50%);
+                text-align: center;
+            }
+        }
+
+        &.active .title-name:after {
+            content: '\2212';
+        }
+    }
+}

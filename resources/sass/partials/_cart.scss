@@ -1,0 +1,191 @@
+/**
+* Base styles for BWPublisher shopping cart/checkout components
+* DO NOT EDIT HERE - Override/extend as needed in the project's `app.scss` file
+*/
+
+// Add to cart form
+#add-to-cart {
+  max-width: 480px;
+  margin: 0 auto;
+  #product-form,
+  #product-variant-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    select, input, button {
+      width: auto;
+      flex: 0 1 auto;
+    }
+    #select-variant {
+      width: 100%;
+    }
+    #product-price,
+    #variant-price {
+      .price {
+        &.original {
+            text-decoration: line-through;
+        }
+      }
+    }
+  }
+}
+// Variant options/price table
+#product-variant-options {
+  width: 100%;
+  td {
+    border: 1px solid #9e9e9e;
+    text-align: left;
+    vertical-align: middle;
+    padding: 5px;
+    &.variant-price {
+      text-align: right;
+      .price {
+        &.original {
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+}
+
+// Display cart items for checkout and preview
+#preview-cart,
+#checkout-cart {
+  overflow: hidden;
+  width: 100%;
+  .cart-items > li,
+  .cart-summary > .totals {
+    display: flex;
+    flex-wrap: nowrap;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .cart-items {
+    li {
+      .item-remove {
+        button {
+          all: initial;
+          height: 1em;
+          width: 1em;
+          padding: 0;
+          text-indent: -999em;
+          position: relative;
+          cursor: pointer;
+          &::before {
+            display: block;
+            content: 'x';
+            font-size: 1em;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            line-height: 1;
+            color: red;
+            text-indent: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Show/hide cart items for preview
+#preview-cart {
+  position: absolute;
+  right: 0;
+  width: 300px;
+  background: rgba($white, 0.75);
+  .cart-items,
+  .cart-empty,
+  .cart-summary {
+    display: none;
+  }
+  :hover > &,
+  &:hover,
+  &.active {
+    .cart-empty {
+      display: none;
+      padding: 20px;
+    }
+    &.has-items {
+      .cart-items,
+      .cart-summary {
+        display: block;
+        padding: 10px 20px;
+      }
+      .cart-empty {
+        display: none;
+      }
+    }
+  }
+  :hover > &,
+  &:hover {
+    .cart-empty {
+      display: none;
+    }
+  }
+}
+
+// Show cart items for checkout
+#checkout-cart {
+    max-width: 980px;
+    margin: 0 auto;
+  .cart-empty {
+    display: block;
+  }
+  &.has-items {
+    .cart-items,
+    .cart-summary {
+      display: block;
+    }
+    .cart-empty {
+      display: none;
+    }
+  }
+  .cart-summary {
+    .button {
+      display: block;
+      width: 100%;
+    }
+    & > .totals {
+      display: block;
+      & > .total {
+        width: 100%;
+        text-align: right;
+        display: block;
+      }
+    }
+  }
+}
+
+// Account & Checkout Forms
+main {
+  &.checkout,
+  &.account {
+    section {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    form {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  }
+}
+#billing-address {
+  display: none;
+}
+
+label {
+  padding: 10px;
+  input[type=radio] {
+    position: static!important;
+    opacity: 1!important;
+    transform: none!important;
+  }
+}
+

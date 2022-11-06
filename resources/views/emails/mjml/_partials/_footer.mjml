@@ -1,0 +1,7 @@
+<mj-section background-color="#0A2636" padding="10px">
+  <mj-column>
+    <mj-text align="center">
+      <a href="{!! url(env('APP_URL')) !!}" style="text-decoration: none; color: #183052; font-weight: 600;">{!! url(env('APP_URL')) !!}</a>
+    </mj-text>
+  </mj-column>
+</mj-section>

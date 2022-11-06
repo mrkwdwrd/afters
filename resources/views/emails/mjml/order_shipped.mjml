@@ -1,0 +1,110 @@
+<mjml>
+  <mj-head>
+    <mj-title>Order Shipped</mj-title>
+    <mj-include path="_partials/_head.mjml" />
+  </mj-head>
+  <mj-body>
+    <mj-include path="_partials/_header.mjml" />
+    <mj-section>
+      <mj-column width="100%">
+        <mj-text align="left" font-weight="600" font-size="28px">
+          Order Shipped
+        </mj-text>
+        <mj-text align="left" font-size="16px" line-height="24px">
+
+          Hi{!! $order->user ? ', ' . $order->user->name . '!' : '!' !!}
+        </mj-text>
+
+        <mj-text align="left" font-size="16px" line-height="24px">
+          @if($order->tracking_number)
+            Your order has now been shipped with tracking number <a href="{!! url('https://auspost.com.au/mypost/track/#/details/' . $order->tracking_number) !!}">{!! $order->tracking_number !!}</a>.<br/>
+          @else
+            Your order has now been shipped.<br/>
+          @endif
+
+          @if($order->user)
+            If you want to view your order details online, you can do so <a href="{!! url('/account/orders/' . $order->token .'/show') !!}">here after logging in</a>.
+          @endif
+        </mj-text>
+        <mj-text align="left" font-weight="600" font-size="18px">
+          Order #{!! $order->number !!}
+        </mj-text>
+        <mj-table>
+          <tr style="border-bottom:2px solid #ecedee;text-align:left;padding:16px 0;">
+            <th style="text-align:left">Product</th>
+            <th style="text-align:center">Qty</th>
+            <th style="text-align:right"></th>
+          </tr>
+
+          @foreach($order->items as $item)
+            <tr>
+                <td style="text-align:left;width: 60%;">
+                  {!! $item->details['name'] !!}
+                  <small>{!! $item->details['summary'] !!}</small>
+                </td>
+                <td style="text-align:center">{!! $item->quantity !!}</td>
+                <td style="text-align:right">${!! $item->quantity * $item->price !!}</td>
+            </tr>
+          @endforeach
+        </mj-table>
+      </mj-column>
+
+      <mj-column width="100%">
+        <mj-table align="right">
+          <tr style="border-bottom:1px solid #ecedee">
+            <td style="font-weight: 500">{!! $order->cart_count !!}</td>
+            <td style="text-align: right">${!! $order->item_total !!}</td>
+          </tr>
+          @if($order->coupon && $order->coupon_discount)
+            <tr style="border-bottom:1px solid #ecedee">
+                <td style="font-weight: 500">Coupon ({!! $order->coupon->code !!})</td>
+                <td style="text-align: right">&minus;{!! '$' . $order->coupon_discount !!}</td>
+            </tr>
+          @endif
+          <tr style="border-bottom:1px solid #ecedee">
+                <td style="font-weight: 500">Shipping ({!! $order->shippingMethod->name !!})</td>
+                <td style="text-align: right">${!! $order->shipping_total !!}</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ecedee">
+            <td style="font-weight: 500">Total</td>
+            <td style="text-align: right">${!! $order->total !!}</td>
+          </tr>
+          <tr>
+            <td>
+                @if($order->payment_method === "credit_card")
+                    <p><small style="color: grey;text-align: right">Paid via Credit Card</small></p>
+                @elseif($order->payment_method === "paypal")
+                    <p><small style="color: grey;text-align: right">Paid via PayPal</small></p>
+                @endif
+            </td>
+          </tr>
+        </mj-table>
+      </mj-column>
+
+      <mj-column width="50%">
+        <mj-text>
+          <h3>Shipping Address</h3>
+          <span>{!! $order->shippingAddress->name !!}</span><br />
+          <span>{!! $order->shippingAddress->company !!}</span><br />
+          <span>{!! $order->shippingAddress->address1 !!}</span><br />
+          <span>{!! $order->shippingAddress->address2 !!}</span><br />
+          <span>{!! $order->shippingAddress->city_suburb !!}</span> <span>{!! $order->shippingAddress->state !!}</span> <span>{!! $order->shippingAddress->postcode !!}</span> <br />
+          <span>{!! $order->shippingAddress->country->getName() !!}</span>
+        </mj-text>
+      </mj-column>
+      <mj-column width="50%">
+        <mj-text>
+          <h3>Billing Address</h3>
+          <span>{!! $order->billingAddress->name !!}</span><br />
+          <span>{!! $order->billingAddress->company !!}</span><br />
+          <span>{!! $order->billingAddress->address1 !!}</span><br />
+          <span>{!! $order->billingAddress->address2 !!}</span><br />
+          <span>{!! $order->billingAddress->city_suburb !!}</span> <span>{!! $order->billingAddress->state !!}</span> <span>{!! $order->billingAddress->postcode !!}</span> <br />
+          <span>{!! $order->billingAddress->country->getName() !!}</span>
+          </div>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-include path="_partials/_footer.mjml" />
+  </mj-body>
+</mjml>

@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>Documentation · Fileuploader | Innostudio.de</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Welcome to Fileuploader's documentation. The documentation describes all options and features so you will see that the Fileuploader can be easily implemented in many systems.">
+
+<link rel="shortcut icon" href="https://innostudio.de/fileuploader/images/favicon.ico">
+
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+<!-- styles -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        line-height: normal;
+        background-color: #fff;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    ul li ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 30px;
+    }
+    
+    ul.list-styled {
+        list-style: disc;
+        margin-left: 40px;
+    }
+
+    .flex-container {
+        display: -webkit-flex;
+        display: flex;
+        background-color: #fff;
+        min-height: 100%;
+    }
+
+    .sidebar {
+        background: #fafbfd;
+        padding: 30px;
+        min-width: 256px;
+        border-right: 1px solid #ebeef1;
+        color: #5b5b7b;
+    }
+
+    .sidebar .logo {
+        padding: 30px;
+        margin: -30px;
+        margin-bottom: 0;
+        color: #fff;
+        background: #9658fe;
+        background: -moz-linear-gradient(-45deg, #3a8ffe 0%, #9658fe 100%);
+        background: -webkit-linear-gradient(-45deg, #3a8ffe 0%, #9658fe 100%);
+        background: linear-gradient(135deg, #3a8ffe 0%, #9658fe 100%);
+        border-bottom: 1px solid #ebeef1;
+    }
+    .sidebar .logo h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    .sidebar .logo h5 {
+        margin: 0;
+        padding: 0;
+    }
+    .sidebar .logo a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .sidebar .menu {
+        margin-top: 26px;
+    }
+    .sidebar .menu li a {
+        display: block;
+        font-weight: bold;
+        font-size: 14px;
+        color: inherit;
+        margin-bottom: 16px;
+        transition: all 0.1s ease;
+    }
+    .sidebar .menu li a:hover {
+        text-decoration: none;
+    }
+    .sidebar .menu li a[href]:hover,
+    .sidebar .menu li a:focus {
+        text-decoration: none;
+        color: #5b7bfe;
+    }
+    .sidebar .menu li ul {
+        list-style: none;
+        margin: 0;
+        padding-left: 30px;
+    }
+    .sidebar .menu li ul li a {
+        font-weight: normal;
+    }
+
+    .content {
+        background: #fff;
+        width: 100%;
+        padding: 30px;
+        max-width: 760px;
+        margin: 0 auto;
+        color: #979fb8;
+        line-height: 24px;
+    }
+    .content h1,
+    .content h2,
+    .content h3,
+    .content h4,
+    .content h5 {
+        font-weight: bold;
+        color: #5b5b7b;
+        margin-top: 40px;
+    }
+    .content a {
+        color: #5b7bfe;
+    }
+    .content .highlight {
+        padding: 16px;
+        background: #fafbfd;
+        border: 1px solid #ebeef1;
+        border-radius: 6px;
+        color: #74809d;
+    }
+    .content .fas,
+    .content .far {
+        display: inline-block;
+        width: 18px;
+        text-align: right;
+        vertical-align: middle;
+        font-size: 18px;
+        color: #979fb8;
+    }
+    .content .folder-structure li {
+        padding: 4px 0;
+    }
+    .content .folder-structure li i {
+        margin-right: 4px;   
+    }
+    .content code {
+        background: #ebeef1;
+        color: #74809d;
+    }
+    .content .prettyprint {
+        background: #fafbfd;
+        padding: 18px;
+        border: 0;
+        word-break: break-word;
+    }
+    .content .prettyprint code {
+        background: none;   
+        color: #7F8A96;
+    }
+    .changelog-content ul {
+        list-style: disc;
+        margin-left: 40px;
+    }
+    .changelog-content ul li ul {
+        list-style: circle;
+        margin-left: 0px;   
+    }
+    .text-danger {
+        color: #F26175;
+    }
+    .footer {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid #ebeef1;
+        text-align: center;
+    }
+</style>
+
+<!-- js -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script>
+    $(document).ready(function() {
+        var $content = $('.content'),
+            $menu = $('.sidebar .menu'),
+            showSection = function(id) {
+                var $section,
+                    subsection,
+                    scrollTo = 0;
+                
+                if (/^options-/.test(id)) {
+                    subsection = id;
+                    id = 'options';
+                }
+                
+                $section = $content.find('section#' + id);
+                
+                if (!$section.length)
+                    $section = $content.find('section#intro');
+                $content.find('section').hide();
+                $section.show();
+                
+                if (subsection)
+                    scrollTo = $section.find('#' + subsection).offset().top;
+                
+                $(window).scrollTop(scrollTo);
+            };
+        
+        $(window).on('hashchange', function() {
+            var hash = window.location.hash.replace('#', '');
+            
+            showSection(hash || 'intro');
+        }).trigger('hashchange');
+    });
+</script>
+
+<style>
+/*! Color themes for Google Code Prettify | MIT License | github.com/jmblog/color-themes-for-google-code-prettify */
+.prettyprint.prettyprinted{background:#1d1f21;font-family:Menlo,Bitstream Vera Sans Mono,DejaVu Sans Mono,Monaco,Consolas,monospace;border:0!important}.pln{color:#c5c8c6}ol.linenums{margin-top:0;margin-bottom:0;color:#969896}li.L0,li.L1,li.L2,li.L3,li.L4,li.L5,li.L6,li.L7,li.L8,li.L9{padding-left:1em;background-color:#1d1f21;list-style-type:decimal}@media screen{.str{color:#b5bd68}.kwd{color:#b294bb}.com{color:#969896}.typ{color:#81a2be}.lit{color:#de935f}.pun{color:#c5c8c6}.opn{color:#c5c8c6}.clo{color:#c5c8c6}.tag{color:#c66}.atn{color:#de935f}.atv{color:#8abeb7}.dec{color:#de935f}.var{color:#c66}.fun{color:#81a2be}}
+</style>	</head>
+
+	<body>
+        <div class="flex-container">
+            <div class="sidebar">
+    <div class="logo">
+        <h1><a href="https://innostudio.de/fileuploader/">fileuploader</a></h1>
+        <h5><a href="#intro">Documentation</a></h5>
+    </div>
+    <ul class="menu">
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#how-to-use">How to use</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li>
+            <a href="#options">Options</a>
+            <ul>
+                <li><a href="#options-validations">Validations</a></li>
+                <li><a href="#options-templates">Templates</a></li>
+                <li><a href="#options-drag-drop">Drag&amp;Drop</a></li>
+                <li><a href="#options-ajax">Ajax</a></li>
+                <li><a href="#options-image-editor">Image editor</a></li>
+                <li><a href="#options-sorter">Sorter</a></li>
+                <li><a href="#options-preload-files">Preload files</a></li>
+                <li><a href="#options-callbacks">Callbacks</a></li>
+                <li><a href="#options-captions">Captions</a></li>
+                <li><a href="#options-others">Others</a></li>
+            </ul>
+        </li>
+        <li><a href="#input-attributes">Input attributes</a></li>
+        <li><a href="#text-variables">Text variables</a></li>
+        <li><a href="#api">Api</a></li>
+        <li><a href="#php">PHP</a></li>
+        <li><a href="#nodejs">Node.js</a></li>
+        <li>
+            <a>Third Parties</a>
+            <ul>
+                <li><a href="#amazons3">Amazon S3</a></li>
+            </ul>
+        </li>
+        <li><a href="#license">License</a></li>
+        <li><a href="#changelog">Changelog</a></li>
+    </ul>
+</div>            <div class="content">
+                <section id="intro">
+                    <h2>Fileuploader Documentation</h2>
+<br>
+<p>Welcome to Fileuploader's documentation.</p>
+<p>Fileuploader is a beautiful and powerful HTML5 file upload plugin. A jQuery, PHP and Node.js tool that transforms the standard file input into a revolutionary and fancy field on your page. The Fileuploader Javascript plugin works for servers based on ASP.NET, C#, Python and others that supports standard HTML form file uploads as well.</p>
+<p>The documentation describes all options and features so you will see that the Fileuploader can be easily implemented in many systems. In average, you need less than five minutes to link the plugin files into your HTML page to get your new file input working.</p>
+
+<h3>What's included</h3>
+<p>Checkout the files that you'll see upon downloading.</p>
+<div class="highlight">
+    <ul class="folder-structure">
+        <li>
+            <i class="fas fa-folder-open"></i> dist
+            <ul>
+                <li><i class="fas fa-folder"></i> font</li>
+                <li><i class="far fa-file"></i> jquery.fileuploader.min.css</li>
+                <li><i class="far fa-file"></i> jquery.fileuploader.min.js</li>
+            </ul>
+        </li>
+        <li>
+            <i class="fas fa-folder"></i> examples
+        </li>
+        <li>
+            <i class="fas fa-folder-open"></i> src
+            <ul>
+                <li>
+                    <i class="fas fa-folder-open"></i> php
+                    <ul>
+                        <li><i class="far fa-file"></i> class.fileuploader.php</li>
+                    </ul>
+                </li>
+                <li>
+                    <i class="fas fa-folder-open"></i> node
+                    <ul>
+                        <li><i class="far fa-file"></i> fileuploader.js</li>
+                        <li><i class="far fa-file"></i> package.json</li>
+                    </ul>
+                </li>
+                <li>
+                    <i class="fas fa-folder-open"></i> thirdparty
+                    <ul>
+                        <li><i class="fas fa-folder"></i> s3</li>
+                    </ul>
+                </li>
+                <li><i class="far fa-file"></i> jquery.fileuploader.sass</li>
+                <li><i class="far fa-file"></i> jquery.fileuploader.js</li>
+            </ul>
+        </li>
+        <li><i class="far fa-file"></i> documentation.html</li>
+    </ul>
+</div>
+
+<h3>Contact Us</h3>
+<p>Please don't hesitate to contact us with any regarding questions or other business inquiries using <a href="#chatra">live chat</a> or write an email to <a href="mailto:contact@innostudio.de">contact@innostudio.de</a>. We are looking forward to answer your questions within 24 hours.</p>
+
+<h3>Getting started</h3>
+<p>Get started with the <a href="#installation">installation</a> instructions.</p>                </section>
+                <section id="installation">
+                    <h2>Installation</h2>
+
+<p>Get the plugin zip file on the <a href="https://innostudio.de/fileuploader/#download">download page</a>. We have to install Fileuploader by linking in our document <code>&lt;head></code> the <b>css</b> and <b>js</b> files from <b>dist</b> folder. Also don't forget to load jQuery library.</p>
+<pre class="prettyprint"><code data-code="language-html">&lt;!-- font --&gt;
+&lt;link href=&quot;font/font-fileuploader.css&quot; media=&quot;all&quot; rel=&quot;stylesheet&quot;&gt;
+
+&lt;!-- css --&gt;
+&lt;link href=&quot;jquery.fileuploader.min.css&quot; media=&quot;all&quot; rel=&quot;stylesheet&quot;&gt;
+
+&lt;!-- js --&gt;
+&lt;script src=&quot;//code.jquery.com/jquery-3.2.1.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;jquery.fileuploader.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></pre>
+
+<br>
+<p>With the files in place we can now <a href="#how-to-use">set up the Fileuploader instance</a>.</p>                </section>
+                <section id="how-to-use">
+                    <h2>How to use</h2>
+
+<p>Create a standard HTML form element. In this form we will have our file input and maybe other fields. We don't need to put the file input into a <code>&lt;form></code> element if we want to upload the files separately using Ajax.</p>
+<pre class="prettyprint"><code data-code="language-html">&lt;form action=&quot;submit.php&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;!-- file input --&gt;
+    &lt;input type=&quot;file&quot; name=&quot;files&quot;&gt;
+    
+    &lt;input type=&quot;submit&quot;&gt;
+&lt;/form&gt;</code></pre>
+
+<br>
+
+<p>Select a file input element with a jQuery selector and call the <code>fileuploader</code> method.</p>
+<pre class="prettyprint"><code data-code="language-html">&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function() {
+        $('input[name=&quot;files&quot;]').fileuploader({
+            // Options will go here
+        });
+    });
+&lt;/script&gt;</code></pre>
+<p>While using a Node.js server or others besides PHP, consider to set the option <code>inputNameBrackets: false</code>.</p>
+
+<p>Now when we have the first view of Fileuploader working, we can configurate it using the <a href="#examples">examples</a> or the <a href="#options">options section</a>.</p>                </section>
+                <section id="examples">
+                    <h2>Examples</h2>
+
+<p>In the following examples we collected different usages of the Fileuploader. Don't forget that some examples have subfolders for different modes and that you can combine examples together. Please check all .css, .js and .php files from the examples.</p>
+<p>Check also the Inspect Element tool (Network, Sources and Console tab) in your browser to understand the configuration much easier.</p>
+
+<b>Modes:</b>
+<ul class="list-inline">
+    <li><a href="examples/default/" target="_blank">Default</a></li>
+    <li><a href="examples/add-more/" target="_blank">Add More</a></li>
+    <li><a href="examples/drag-drop/" target="_blank">Ajax mode</a></li>
+    <li><a href="examples/drag-drop-form/" target="_blank">Drag&amp;Drop with form submit</a></li>
+</ul>
+
+<br>
+
+<b>Themes:</b>
+<ul class="list-inline">
+    <li><a href="examples/default/" target="_blank">Default</a></li>
+    <li><a href="examples/one-button/" target="_blank">One-button</a></li>
+    <li><a href="examples/drag-drop/" target="_blank">Drag&amp;Drop</a></li>
+    <li><a href="examples/drag-drop-form/" target="_blank">Drop-In</a></li>
+    <li><a href="examples/thumbnails/" target="_blank">Thumbnails</a></li>
+</ul>
+
+<br>
+
+<b>Preloaded files:</b>
+<ul class="list-inline">
+    <li><a href="examples/preloaded-files/" target="_blank">Preloaded files</a></li>
+</ul>
+
+<br>
+
+<b>Image editor:</b>
+<ul class="list-inline">
+    <li><a href="examples/image-editor/default/" target="_blank">Image editor in a form</a></li>
+    <li><a href="examples/image-editor/upload/" target="_blank">Image editor with ajax</a></li>
+    <li><a href="examples/image-editor/client-side/" target="_blank">Client-side image editor</a></li>
+</ul>
+
+<br>
+
+<b>File sorter:</b>
+<ul class="list-inline">
+    <li><a href="examples/sorter/default/" target="_blank">File sorter in a form</a></li>
+    <li><a href="examples/sorter/upload/" target="_blank">File sorter with ajax</a></li>
+</ul>
+
+<br>
+
+<b>Others:</b>
+<ul class="list-inline">
+    <li><a href="examples/default-upload/" target="_blank">Custom file name</a></li>
+    <li><a href="examples/api/" target="_blank">API methods</a></li>
+    <li><a href="examples/page-form/" target="_blank">Avatar form example</a></li>
+    <li><a href="examples/php-generated-input/" target="_blank">Generated input with PHP</a></li>
+</ul>                </section>
+                <section id="options">
+                    <h2>Options</h2>
+
+<p>Available options are listed below. Remember! In all text options you can use <a href="#text-variables">Text Variables</a> or functions which are returning text.</p>
+
+<h3 id="options-validations">Validations</h3>
+
+<p>1. limit of the choosen and preloaded files <code>{null, Number}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// if null - has no limits
+// example: 3
+limit: null</code></pre>
+
+<p>2. maximal size in MB of the choosen and preloaded files together <code>{null, Number}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// if null - has no limits
+// example: 3
+maxSize: null</code></pre>
+
+<p>3. maximal size of each choosen file in MB <code>{null, Number}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// if null - has no limits
+// example: 3
+fileMaxSize: null</code></pre>
+
+<p>4. allowed extensions or file types <code>{null, Array}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// if null - has no limits
+// example: ['jpg', 'jpeg', 'png', 'audio/mp3', 'text/plain']
+extensions: null</code></pre>
+
+<p>We can use the <code>onFilesCheck</code> callback from the <a href="#options-callbacks">callbacks section</a> to add our own validation function.</p>
+
+<h3 id="options-templates">Templates</h3>
+
+<p>1. add theme class name to fileuploader <code>{null, String}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// the class name will be: fileuploader-theme-default
+theme: 'default'</code></pre>
+
+<p>2. change the file input <code>{Boolean, String, Function, jQuery Object}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// example: true
+// example: ' ' - no input
+// example: '&lt;div&gt;Click me&lt;/div&gt;'
+// example: function(options) { return '&lt;div&gt;Click me&lt;/div&gt;'; }
+// example: $('.selector')
+changeInput: true</code></pre>
+
+<p>3. thumbnails for files <code>{null, Object}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">thumbnails: {
+    // thumbnails list HTML {String, Function}
+    // example: '&lt;ul&gt;&lt;/ul&gt;'
+    // example: function(options) { return '&lt;ul&gt;&lt;/ul&gt;'; }
+    box: '&lt;div class=&quot;fileuploader-items&quot;&gt;' +
+              '&lt;ul class=&quot;fileuploader-items-list&quot;&gt;&lt;/ul&gt;' +
+          '&lt;/div&gt;',
+          
+    // append thumbnails list to selector {null, String, jQuery Object}
+    // example: 'body'
+    boxAppendTo: null,
+    
+    // thumbnails for the choosen files {String, Function}
+    // example: '&lt;li&gt;${name}&lt;/li&gt;'
+    // example: function(item) { return '&lt;li&gt;' + item.name + '&lt;/li&gt;'; }
+    item: '&lt;li class=&quot;fileuploader-item file-has-popup&quot;&gt;' +
+               '&lt;div class=&quot;columns&quot;&gt;' +
+                   '&lt;div class=&quot;column-thumbnail&quot;&gt;${image}&lt;span class=&quot;fileuploader-action-popup&quot;&gt;&lt;/span&gt;&lt;/div&gt;' +
+                   '&lt;div class=&quot;column-title&quot;&gt;' +
+                       '&lt;div title=&quot;${name}&quot;&gt;${name}&lt;/div&gt;' +
+                       '&lt;span&gt;${size2}&lt;/span&gt;' +
+                   '&lt;/div&gt;' +
+                   '&lt;div class=&quot;column-actions&quot;&gt;' +
+                       '&lt;a class=&quot;fileuploader-action fileuploader-action-remove&quot; title=&quot;${captions.remove}&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/a&gt;' +
+                   '&lt;/div&gt;' +
+               '&lt;/div&gt;' +
+               '&lt;div class=&quot;progress-bar2&quot;&gt;${progressBar}&lt;span&gt;&lt;/span&gt;&lt;/div&gt;' +
+          '&lt;/li&gt;',
+          
+    // thumbnails for the preloaded files {String, Function}
+    // example: '&lt;li&gt;${name}&lt;/li&gt;'
+    // example: function(item) { return '&lt;li&gt;' + item.name + '&lt;/li&gt;'; }
+    item2: '&lt;li class=&quot;fileuploader-item file-has-popup&quot;&gt;' +
+                '&lt;div class=&quot;columns&quot;&gt;' +
+                    '&lt;div class=&quot;column-thumbnail&quot;&gt;${image}&lt;span class=&quot;fileuploader-action-popup&quot;&gt;&lt;/span&gt;&lt;/div&gt;' +
+                    '&lt;div class=&quot;column-title&quot;&gt;' +
+                        '&lt;a href=&quot;${file}&quot; target=&quot;_blank&quot;&gt;' +
+                            '&lt;div title=&quot;${name}&quot;&gt;${name}&lt;/div&gt;' +
+                            '&lt;span&gt;${size2}&lt;/span&gt;' +
+                        '&lt;/a&gt;' +
+                    '&lt;/div&gt;' +
+                    '&lt;div class=&quot;column-actions&quot;&gt;' +
+                        '&lt;a href=&quot;${file}&quot; class=&quot;fileuploader-action fileuploader-action-download&quot; title=&quot;${captions.download}&quot; download&gt;&lt;i&gt;&lt;/i&gt;&lt;/a&gt;' +
+                        '&lt;a class=&quot;fileuploader-action fileuploader-action-remove&quot; title=&quot;${captions.remove}&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/a&gt;' +
+                    '&lt;/div&gt;' +
+                '&lt;/div&gt;' +
+            '&lt;/li&gt;',
+            
+    // thumbnails selectors
+    _selectors: {
+        list: '.fileuploader-items-list',
+        item: '.fileuploader-item',
+        start: '.fileuploader-action-start',
+        retry: '.fileuploader-action-retry',
+        remove: '.fileuploader-action-remove',
+        sorter: '.fileuploader-action-sort',
+        popup: '.fileuploader-popup-preview',
+        popup_open: '.fileuploader-action-popup'
+    },
+    
+    // insert the thumbnail's item at the begining of the list? {Boolean}
+    itemPrepend: false,
+    
+    // show a confirmation dialog by removing a file? {Boolean}
+    // it will not be shown in upload mode by canceling an upload
+    // you can call your own dialog box using dialogs option
+    removeConfirmation: true,
+    
+    // render the image thumbnail? {Boolean}
+    // if false, it will generate an icon(you can also hide it with css)
+    // if false, you can use the API method item.renderThumbnail() to render it (check thumbnails example)
+    startImageRenderer: true,
+    
+    // render the images synchron {Boolean}
+    // used to improve the browser speed
+    synchronImages: true,
+    
+    // read image using URL createObjectURL method {Boolean}
+    // if false, it will use readAsDataURL
+    useObjectUrl: false,
+    
+    // render the image in a canvas element {Boolean, Object}
+    // if true, it will generate an image with the css sizes from the parent element of ${image}
+    // you can also set the width and the height in the object {width: 96, height: 96}
+    canvasImage: true,
+    
+    // render thumbnail for video files? {Boolean}
+    videoThumbnail: false,
+    
+    // fix exif orientation {Boolean}
+    exif: true,
+    
+    // Callback fired before adding the list element
+    beforeShow: null,
+    
+    // Callback fired after adding the item element
+    onItemShow: null,
+    
+    // Callback fired after removing the item element
+    // by default we will animate the removing action
+    onItemRemove: function(html) {
+        html.children().animate({'opacity': 0}, 200, function() {
+            setTimeout(function() {
+                html.slideUp(200, function() {
+                    html.remove();
+                });
+            }, 100);
+        });
+    },
+    
+    // Callback fired after the item image was loaded or a image file is invalid
+    // default - null
+    onImageLoaded: function(item, listEl, parentEl, newInputEl, inputEl) {
+        // invalid image?
+        if (item.image.hasClass('fileuploader-no-thumbnail')) {
+            // callback goes here
+        }
+        
+        // check image size and ratio?
+        if (item.reader.node &amp;&amp; item.reader.width &gt; 1920 &amp;&amp; item.reader.height &gt; 1080 &amp;&amp; item.reader.ratio != '16:9') {
+            // callback goes here
+        }
+    }
+    
+    // item popup preview {Object} 
+    popup: {
+        // popup append to container {String, jQuery Object}
+        container: 'body',
+        
+        // enable arrows {Boolean}
+        arrows: true,
+        
+        // loop the arrows {Boolean}
+        loop: true,
+        
+        // popup HTML {String, Function}
+        template: function(data) { return '&lt;div class=&quot;fileuploader-popup-preview&quot;&gt;' +
+            '&lt;a class=&quot;fileuploader-popup-move&quot; data-action=&quot;prev&quot;&gt;&lt;/a&gt;' +
+            '&lt;div class=&quot;fileuploader-popup-node ${format}&quot;&gt;${reader.node}&lt;/div&gt;' +
+            '&lt;div class=&quot;fileuploader-popup-content&quot;&gt;' +
+                '&lt;ul class=&quot;fileuploader-popup-meta&quot;&gt;' +
+                    '&lt;li&gt;' +
+                        '&lt;span&gt;${captions.name}:&lt;/span&gt;' +
+                        '&lt;h5&gt;${name}&lt;/h5&gt;' +
+                    '&lt;/li&gt;' +
+                    '&lt;li&gt;' +
+                        '&lt;span&gt;${captions.type}:&lt;/span&gt;' +
+                        '&lt;h5&gt;${extension.toUpperCase()}&lt;/h5&gt;' +
+                    '&lt;/li&gt;' +
+                    '&lt;li&gt;' +
+                        '&lt;span&gt;${captions.size}:&lt;/span&gt;' +
+                        '&lt;h5&gt;${size2}&lt;/h5&gt;' +
+                    '&lt;/li&gt;' +
+                    (data.reader &amp;&amp; data.reader.width ? '&lt;li&gt;' +
+                        '&lt;span&gt;${captions.dimensions}:&lt;/span&gt;' +
+                        '&lt;h5&gt;${reader.width}x${reader.height}px&lt;/h5&gt;' +
+                    '&lt;/li&gt;' : ''
+                    ) +
+                    (data.reader &amp;&amp; data.reader.duration ? '&lt;li&gt;' +
+                        '&lt;span&gt;${captions.duration}:&lt;/span&gt;' +
+                        '&lt;h5&gt;${reader.duration2}&lt;/h5&gt;' +
+                    '&lt;/li&gt;' : ''
+                    ) +
+                '&lt;/ul&gt;' +
+                '&lt;ul class=&quot;fileuploader-popup-tools&quot;&gt;' +
+                    (data.format == 'image' &amp;&amp; data.editor ? (data.editor.cropper ? '&lt;li&gt;' +
+                        '&lt;a data-action=&quot;crop&quot;&gt;' +
+                            '&lt;i&gt;&lt;/i&gt;' +
+                            '&lt;span&gt;${captions.crop}&lt;/span&gt;' +
+                        '&lt;/a&gt;' +
+                    '&lt;/li&gt;' : '') +
+                    (data.editor.rotate ? '&lt;li&gt;' +
+                        '&lt;a data-action=&quot;rotate-cw&quot;&gt;' +
+                            '&lt;i&gt;&lt;/i&gt;' +
+                            '&lt;span&gt;${captions.rotate}&lt;/span&gt;' +
+                        '&lt;/a&gt;' +
+                    '&lt;/li&gt;' : '') : ''
+                    ) +
+                    '&lt;li&gt;' +
+                        '&lt;a data-action=&quot;remove&quot;&gt;' +
+                            '&lt;i&gt;&lt;/i&gt;' +
+                            '&lt;span&gt;${captions.remove}&lt;/span&gt;' +
+                        '&lt;/a&gt;' +
+                    '&lt;/li&gt;' +
+                '&lt;/ul&gt;' +
+                '&lt;div class=&quot;fileuploader-popup-buttons&quot;&gt;' +
+                    '&lt;a class=&quot;fileuploader-popup-button&quot; data-action=&quot;cancel&quot;&gt;${captions.cancel}&lt;/a&gt;' +
+                    '&lt;a class=&quot;fileuploader-popup-button button-success&quot; data-action=&quot;save&quot;&gt;${captions.confirm}&lt;/a&gt;' +
+                '&lt;/div&gt;' +
+            '&lt;/div&gt;' +
+            '&lt;a class=&quot;fileuploader-popup-move&quot; data-action=&quot;next&quot;&gt;&lt;/a&gt;' +
+        '&lt;/div&gt;'; },
+        
+        // Callback fired after creating the popup
+        // we will trigger by default buttons with custom actions
+        onShow: function(item) {
+            item.popup.html.on('click', '[data-action=&quot;prev&quot;]', function(e) {
+                item.popup.move('prev');
+            }).on('click', '[data-action=&quot;next&quot;]', function(e) {
+                item.popup.move('next');
+            }).on('click', '[data-action=&quot;crop&quot;]', function(e) {
+                if (item.editor)
+                    item.editor.cropper();
+            }).on('click', '[data-action=&quot;rotate-cw&quot;]', function(e) {
+                if (item.editor)
+                    item.editor.rotate();
+            }).on('click', '[data-action=&quot;remove&quot;]', function(e) {
+                item.popup.close();
+                item.remove();
+            }).on('click', '[data-action=&quot;cancel&quot;]', function(e) {
+                item.popup.close();
+            }).on('click', '[data-action=&quot;save&quot;]', function(e) {
+                if (item.editor)
+                    item.editor.save();
+                if (item.popup.close)
+                    item.popup.close();
+            });
+        },
+        
+        // Callback fired after closing the popup
+        onHide: null
+    }
+}</code></pre>
+
+<h3 id="options-drag-drop">Drag&amp;Drop</h3>
+
+<p>1. enable the Drag&amp;Drop feature <code>{null, Object}</code>
+<br>
+This feature is not available in all browser without using the <a href="examples/drag-drop/" target="_blank">Ajax mode</a> or <a href="examples/drag-drop-form/" target="_blank">Drag&amp;Drop with form submit</a> example.</p>
+<pre class="prettyprint"><code data-code="language-javascript">// by default - true
+dragDrop: {
+    // set the drop container {null, String, jQuery Object}
+    // example: 'body'
+    container: null,
+
+    // Callback fired on entering with dragging files the drop container
+    onDragEnter: function(event, listEl, parentEl, newInputEl, inputEl) {
+        // callback will go here
+    },
+
+    // Callback fired on leaving with dragging files the drop container
+    onDragLeave: function(event, listEl, parentEl, newInputEl, inputEl) {
+        // callback will go here
+    },
+
+    // Callback fired on dropping the files in the drop container
+    onDrop: function(event, listEl, parentEl, newInputEl, inputEl) {
+        // callback will go here
+    }
+}</code></pre>
+
+<h3 id="options-ajax">Ajax</h3>
+
+<p>1. enable the ajax feature to upload files separately to server <code>{null, Object}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// by default - null
+upload: {
+    // upload URL {String}
+    url: 'upload.php',
+
+    // upload data {null, Object}
+    // you can also change this Object in beforeSend callback
+    // example: { option_1: '1', option_2: '2' }
+    data: null,
+
+    // upload type {String}
+    // for more details http://api.jquery.com/jquery.ajax/
+    type: 'POST',
+
+    // upload enctype {String}
+    // for more details http://api.jquery.com/jquery.ajax/
+    enctype: 'multipart/form-data',
+
+    // auto-start file upload {Boolean}
+    // if false, you can use the API methods - item.upload.send() to trigger upload for each file
+    // if false, you can use the upload button - check custom file name example
+    start: true,
+
+    // upload the files synchron {Boolean}
+    synchron: true,
+
+    // upload large files in chunks {false, Number}
+    // set file chunk size in MB as Number (ex: 4)
+    chunk: false,
+
+    // Callback fired before uploading a file
+    // by returning false, you can prevent the upload
+    beforeSend: function(item, listEl, parentEl, newInputEl, inputEl) {
+        // example:
+        // here you can extend the upload data
+        item.upload.data.new_data_attribute = 'nice';
+
+        // example:
+        // here you can create upload headers
+        item.upload.headers = {
+            &quot;Authorization&quot;: &quot;Basic &quot; + btoa(username + &quot;:&quot; + password)
+        };
+
+        return true;
+    },
+
+    // Callback fired if the upload succeeds
+    // we will add by default a success icon and fadeOut the progressbar
+    onSuccess: function(data, item, listEl, parentEl, newInputEl, inputEl, textStatus, jqXHR) {
+        item.html.find('.fileuploader-action-remove').addClass('fileuploader-action-success');
+
+        setTimeout(function() {
+            item.html.find('.progress-bar2').fadeOut(400);
+        }, 400);
+    },
+
+    // Callback fired if the upload failed
+    // we will set by default the progressbar to 0% and if it wasn't cancelled, we will add a retry button
+    onError: function(item, listEl, parentEl, newInputEl, inputEl, jqXHR, textStatus, errorThrown) {
+        var progressBar = item.html.find('.progress-bar2');
+
+        if(progressBar.length &gt; 0) {
+            progressBar.find('span').html(0 + &quot;%&quot;);
+            progressBar.find('.fileuploader-progressbar .bar').width(0 + &quot;%&quot;);
+            item.html.find('.progress-bar2').fadeOut(400);
+        }
+
+        item.upload.status != 'cancelled' &amp;&amp; item.html.find('.fileuploader-action-retry').length == 0 ? item.html.find('.column-actions').prepend(
+            '&lt;a class=&quot;fileuploader-action fileuploader-action-retry&quot; title=&quot;Retry&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;/a&gt;'
+        ) : null;
+    },
+
+    // Callback fired while upload the file
+    // we will set by default the progressbar width and percentage
+    /* data = {
+        loaded: ...,
+        loadedInFormat: ...,
+        total: ...,
+        totalInFormat: ...,
+        percentage: ...,
+        secondsElapsed: ...,
+        secondsElapsedInFormat:...,
+        bytesPerSecond: ...,
+        bytesPerSecondInFormat: ...,
+        remainingBytes: ...,
+        remainingBytesInFormat: ...,
+        secondsRemaining: ...,
+        secondsRemainingInFormat: ...
+    } */
+    onProgress: function(data, item, listEl, parentEl, newInputEl, inputEl) {
+        var progressBar = item.html.find('.progress-bar2');
+
+        if(progressBar.length &gt; 0) {
+            progressBar.show();
+            progressBar.find('span').html(data.percentage + &quot;%&quot;);
+            progressBar.find('.fileuploader-progressbar .bar').width(data.percentage + &quot;%&quot;);
+        }
+    },
+
+    // Callback fired after all files were uploaded
+    onComplete: function(listEl, parentEl, newInputEl, inputEl, jqXHR, textStatus) {
+        // callback will go here
+    }
+}</code></pre>
+
+<h3 id="options-image-editor">Image editor</h3>
+
+<p>1. enable the image editor feature <code>{Boolean, Object}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// by default - false
+editor: {
+    // editor cropper
+    cropper: {
+        // cropper ratio
+        // example: null
+        // example: '1:1'
+        // example: '16:9'
+        // you can also write your own
+        ratio: null,
+
+        // cropper minWidth in pixels
+        // size is adjusted with the image natural width
+        minWidth: null,
+
+        // cropper minHeight in pixels
+        // size is adjusted with the image natural height
+        minHeight: null,
+
+        // show cropper grid
+        showGrid: true
+    },
+
+    // editor on save quality (0 - 100)
+    // only for client-side resizing
+    quality: null,
+
+    // editor on save maxWidth in pixels
+    // only for client-side resizing
+    maxWidth: null,
+
+    // editor on save maxHeight in pixels
+    // only for client-size resizing
+    maxHeight: null,
+
+    // Callback fired after saving the image in editor
+    onSave: function(blobOrDataUrl, item, listEl, parentEl, newInputEl, inputEl) {
+        // callback will go here
+    }
+}</code></pre>
+
+<h3 id="options-sorter">Sorter</h3>
+
+<p>1. enable the sorting feature <code>{Boolean, Object}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// see also thumbnails._selectors.sorter in the options
+// by default - false
+sorter: {
+    // selector exclude on drag (ex: 'input, textarea')
+    selectorExclude: null,
+
+    // placeholder html
+    // null - will clone the item without content
+    placeholder: null,
+
+    // scroll container on drag
+    scrollContainer: window,
+
+    // callback fired after sorting, adding and removing a file
+    onSort: function(list, listEl, parentEl, newInputEl, inputEl) {
+        // your callback goes here
+    }
+}</code></pre>
+
+<h3 id="options-preload-files">Preload files</h3>
+
+<p>1. preload files to preview and edit them <code>{null, Array}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">/* [{
+    name: 'filename1.txt',
+    size: 1024,
+    type: 'text/plain',
+    file: 'uploads/filename1.txt',
+    data: {
+        thumbnail: 'uploads/filename1_thumbnail.jpg', // item thumbnail
+        readerCrossOrigin: 'anonymous', // fix image cross-origin issue
+        readerSkip: true, // skip file from reading by rendering a thumbnail
+        
+        your_own_attribute: 'your own value'
+    }
+}] */
+files: null</code></pre>
+
+<h3 id="options-callbacks">Callbacks</h3>
+<pre class="prettyprint"><code data-code="language-javascript">// Callback fired when fileuploader is not supported in your browser
+onSupportError: function(parentEl, inputEl) {
+    // callback will go here
+},
+
+// Callback fired before rendering the fileuploader elements
+// by returning false, you will prevent the rendering
+beforeRender: function(parentEl, inputEl) {
+    // callback will go here
+
+    return true;
+},
+
+// Callback fired after rendering the fileuploader elements
+afterRender: function(listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+},
+
+// Callback fired after selecting the files from computer but only before processing them
+// by returning false, you will prevent the processing of the files but they will remain in the input
+beforeSelect: function(files, listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+
+    return true;
+},
+
+// Callback fired on checking for warnings the choosed files
+// by returning false, you will prevent the files from adding/upload
+onFilesCheck: function(files, options, listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+
+    return true;
+},
+
+// Callback fired on rendering a file
+onFileRead: function(item, listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+},
+
+// Callback fired on selecting and processing a file
+onSelect: function(item, listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+},
+
+// Callback fired after selecting and processing of all files
+afterSelect: function(listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+},
+
+// Callback fired after generating a list input. Needs to return an array!
+onListInput: function(list, fileList, listInputEl, listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+
+    return list;
+},
+
+// Callback fired after deleting a file
+// by returning false, you can prevent a file from removing
+onRemove: function(item, listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+
+    return true;
+},
+
+// Callback fired when fileuploader has no files
+onEmpty: function(listEl, parentEl, newInputEl, inputEl) {
+    // callback will go here
+}</code></pre>
+
+<h3 id="options-captions">Captions</h3>
+<p>Use captions option to tranlate the plugin into your language.</p>
+<pre class="prettyprint"><code data-code="language-javascript">captions: {
+    button: function(options) { return 'Choose ' + (options.limit == 1 ? 'File' : 'Files'); },
+    feedback: function(options) { return 'Choose ' + (options.limit == 1 ? 'file' : 'files') + ' to upload'; },
+    feedback2: function(options) { return options.length + ' ' + (options.length &gt; 1 ? ' files were' : ' file was') + ' chosen'; },
+    confirm: 'Confirm',
+    cancel: 'Cancel',
+    name: 'Name',
+    type: 'Type',
+    size: 'Size',
+    dimensions: 'Dimensions',
+    duration: 'Duration',
+    crop: 'Crop',
+    rotate: 'Rotate',
+    sort: 'Sort',
+    download: 'Download',
+    remove: 'Remove',
+    drop: 'Drop the files here to Upload',
+    paste: '&lt;div class=&quot;fileuploader-pending-loader&quot;&gt;&lt;/div&gt; Pasting a file, click here to cancel.',
+    removeConfirmation: 'Are you sure you want to remove this file?',
+    errors: {
+        filesLimit: 'Only ${limit} files are allowed to be uploaded.',
+        filesType: 'Only ${extensions} files are allowed to be uploaded.',
+        fileSize: '${name} is too large! Please choose a file up to ${fileMaxSize}MB.',
+        filesSizeAll: 'Files that you chose are too large! Please upload files up to ${maxSize} MB.',
+        fileName: 'File with the name ${name} is already selected.',
+        folderUpload: 'You are not allowed to upload folders.'
+    }
+}</code></pre>
+
+<h3 id="options-others">Others</h3>
+
+<p>enable addMore mode to add files from different folders <code>{Boolean}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">addMore: false</code></pre>
+
+<p>add brackets at the end of the input name by multiple files <code>{Boolean}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// specially for PHP, set false for ASP.NET, C#, Node.js and others
+inputNameBrackets: true</code></pre>
+
+<p>allow duplicated names of files <code>{Object}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// this option is fixing iPhone `picture.jpg` issue
+// this feature is available only in upload mode
+// set on true only if are changing the file name after uploading
+skipFileNameCheck: false</code></pre>
+
+<p>upload image from clipboard <code>{null, Number in ms}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// the input should be completely into view by pasting
+// this feature is available only in upload mode
+clipboardPaste: 2000</code></pre>
+
+<p>input with the listed files <code>{Boolean, String}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// this list is an input[type=&quot;hidden&quot;]
+// this list will be generated from each choosed/preloaded file name in a JSON format. You can use the onListInput callback to manipulate this list
+// use item.data.listProps = {my_own_property: 'my own value'} to add your own attributes to the list 
+// files in this list that are obejcts like '{file: &quot;0://file_name.ext&quot;}' are showing to PHP that they are choosed and should be uploaded
+// if you've preloaded some files on the server-side, PHP will check if each preloaded file is in this list, if not, PHP will set them as removed.
+// example: true
+// example: 'custom_listInput_name'
+listInput: true</code></pre>
+
+<p>enable Api methods <code>{Boolean}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// after enable, use the code below to get Api methods
+// var api = $.fileuploader.getInstance(input_element);
+enableApi: false</code></pre>
+
+<p>file reader timeout <code>{Object}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">reader: {
+    // file reader timeout for the thumbnails {Number}
+    thumbnailTimeout: 5000,
+
+    // file reader timeout for the popup preview {Number}
+    timeout: 12000
+},</code></pre>
+
+<p>dialogs <code>{Object}</code></p>
+<pre class="prettyprint"><code data-code="language-javascript">// made to let you customizing the standard Javascript dialogs
+// this dialogs are used by showing a file warning or confirming a file remove
+dialogs: {
+
+    // alert dialog
+    alert: function(text) {
+        return alert(text);
+    },
+
+    // confirm dialog
+    confirm: function(text, callback) {
+        confirm(text) ? callback() : null;
+    }
+}</code></pre>                </section>
+                <section id="input-attributes">
+                    <h2>Input attributes</h2>
+
+<p>You can configurate the Fileuploader not only in Javascript but also setting some input attributes in HTML.
+<br>
+Example: <code>&lt;input type="file" name="files" data-fileuploader-limit="2"></code>
+</p>
+
+<pre class="prettyprint"><code data-code="language-html">&lt;!-- limit option {Number} --&gt;
+data-fileuploader-limit=&quot;2&quot;
+
+&lt;!-- maxSize option {Number} --&gt;
+data-fileuploader-maxSize=&quot;3&quot;
+
+&lt;!-- fileMaxSize option {Number} --&gt;
+data-fileuploader-fileMaxSize=&quot;1&quot;
+
+&lt;!-- extensions option {Comma spliced String} --&gt;
+data-fileuploader-extensions=&quot;jpg, png, gif&quot;
+
+&lt;!-- theme option {String} --&gt;
+data-fileuploader-theme=&quot;default&quot;
+
+&lt;!-- listInput option {String} --&gt;
+data-fileuploader-listInput=&quot;myCustomName&quot;
+
+&lt;!-- files option {JSON String} --&gt;
+data-fileuploader-files='&quot;[{&quot;name&quot;:&quot;filename1.txt&quot;,&quot;size&quot;:1024,&quot;type&quot;:&quot;text/plain&quot;,&quot;file&quot;:&quot;uploads/filename1.txt&quot;}]&quot;'</code></pre>                </section>
+                <section id="text-variables">
+                    <h2>Text variables</h2>
+
+<p>The inline text variables are available in each text option. Writin ${variable_name} to transform it.
+<br>
+Example: <code>'Only ${limit} files are allowed to be uploaded.'</code>
+</p>
+
+<pre class="prettyprint"><code data-code="language-html">&lt;!-- limit option --&gt;
+&lt;!-- always available --&gt;
+${limit}
+
+&lt;!-- maxSize option --&gt;
+&lt;!-- always available --&gt;
+${maxSize}
+
+&lt;!-- fileMaxSize option --&gt;
+&lt;!-- always available --&gt;
+${fileMaxSize}
+
+&lt;!-- extensions option --&gt;
+&lt;!-- always available --&gt;
+${extensions}
+
+&lt;!-- number of choosed/preloaded files --&gt;
+&lt;!-- only for captions.feedback and captions.feedback2 --&gt;
+${length}
+
+&lt;!-- file name --&gt;
+&lt;!-- only in thumbnails.item, thumbnails.item2, captions.removeConfirmation, captions.errors.fileSize and captions.errors.fileName --&gt;
+${name}
+
+&lt;!-- file title (file name without extension) --&gt;
+&lt;!-- only in thumbnails.item, thumbnails.item2, captions.removeConfirmation, captions.errors.fileSize and captions.errors.fileName --&gt;
+${title}
+
+&lt;!-- file extension --&gt;
+&lt;!-- only in thumbnails.item, thumbnails.item2, captions.removeConfirmation, captions.errors.fileSize and captions.errors.fileName --&gt;
+${extension}
+
+&lt;!-- file size --&gt;
+&lt;!-- only in thumbnails.item, thumbnails.item2, captions.removeConfirmation, captions.errors.fileSize and captions.errors.fileName --&gt;
+${size}
+
+&lt;!-- file size (formatted in bytes, kbs, mbs...) --&gt;
+&lt;!-- only in thumbnails.item, thumbnails.item2, captions.removeConfirmation, captions.errors.fileSize and captions.errors.fileName --&gt;
+${size2}
+
+&lt;!-- file type (audio/mp3) --&gt;
+&lt;!-- only in thumbnails.item, thumbnails.item2, captions.removeConfirmation, captions.errors.fileSize and captions.errors.fileName --&gt;
+${type}
+
+&lt;!-- file format (audio) --&gt;
+&lt;!-- only in thumbnails.item, thumbnails.item2, captions.removeConfirmation, captions.errors.fileSize and captions.errors.fileName --&gt;
+${format}
+
+&lt;!-- file data --&gt;
+&lt;!-- only in thumbnails.item, thumbnails.item2, captions.removeConfirmation, captions.errors.fileSize and captions.errors.fileName --&gt;
+${data.my_custom_data_key}
+
+&lt;!-- file icon HTML element --&gt;
+&lt;!-- remember that a file-like icon is also available, just remove the comments in css file from the line /* item icon like file */ --&gt;
+&lt;!-- file icon HTML element --&gt;
+&lt;!-- only in thumbnails.item and thumbnails.item2 --&gt;
+${icon}
+
+&lt;!-- file thumbnail / file icon (for not image files) holder HTML element --&gt;
+&lt;!-- only in thumbnails.item and thumbnails.item2 --&gt;
+${image}</code></pre>                </section>
+                <section id="api">
+                    <h2>Api</h2>
+
+<p>Available methods are listed below.
+<br>
+Don't forget that you will need to set <code>enableApi: true</code> to activate the Api methods.</p>
+
+<pre class="prettyprint"><code data-code="language-html">var api = $.fileuploader.getInstance(file_input_element);
+
+// open browser file explorer to choosed files
+api.open();
+
+// get Fileuploader options
+api.getOptions();
+
+// get Fileuploader parent element
+api.getParentEl();
+
+// get Fileuploader input element
+api.getInputEl();
+
+// get Fileuploader new/generated input element
+api.getNewInputEl();
+
+// get Fileuploader thumbnails list element
+api.getListEl();
+
+// get Fileuploader listInput element
+api.getListInputEl();
+
+// get Fileuploader file items
+api.getFiles();
+
+// get Fileuploader choosed file items
+api.getChoosedFiles();
+
+// get Fileuploader preloaded file items
+api.getAppendedFiles();
+
+// get Fileuploader uploaded file items
+api.getUploadedFiles();
+
+// get Fileuploader list of files using custom key
+// @param toJSON {Boolean} - Parse the Array to JSON?
+// @param customItemKey {String} - Generate a list with only a file attribute (ex: name, url)?
+api.getFileList(toJSON, customItemKey);
+
+// update the Fileuploader list of files
+api.updateFileList();
+
+// set Fileuploader option
+api.setOption(key, value);
+
+// get an Fileuploader item data by giving an item HTML element
+api.findFile(itemHtmlElement);
+
+// create a file from data or dataURI and add to the plugin (only in upload mode)
+// @param data {String} - text or dataURI string
+// @param type {String} - file type (ex: image/png)
+// @param custom_name {null, String} - custom file name (ex: picture.png)
+api.add(data, type, custom_name);
+
+// append file (Object) or files(Array with Objects)
+api.append(file);
+
+// update file by giving the item Object and new data Object
+api.update(item, data);
+
+// remove an item by giving an item Object or item HTML element
+api.remove(item);
+
+// reset the Fileuploader input
+api.reset();
+
+// start the upload of the files
+api.uploadStart();
+
+// disable Fileuploader input
+api.disable(also_lock_item_remove_startUpload_retry_action);
+
+// enable Fileuploader input
+api.enable();
+
+// return true if there are no files
+api.isEmpty();
+
+// return true if the input is disabled
+api.isDisabled();
+
+// return true if the input is rendered
+api.isRendered();
+
+// return the plugin mode ('default', 'addMore', 'upload')
+api.getPluginMode();
+
+// generate a text with variables
+api.assets.textParse(myText, myObjectWithVariables);
+
+// destroy Fileuploader
+api.destroy();</code></pre>
+
+<h3>Item methods</h3>
+<pre class="prettyprint"><code data-code="language-html">// remove item
+item.remove();
+
+// render thumbnail
+item.renderThumbnail(custom_src_or_update?);
+
+// item upload - !only if upload is enabled
+/* start upload */
+item.upload.send();
+
+/* cancel upload */
+item.upload.cancel();
+
+/* retry upload if failed */
+item.upload.retry();
+
+/* resend upload */
+item.upload.resend();
+
+// popup - !only if popup is enabled
+/* open popup */
+item.popup.open();
+
+/* close popup - !only if popup is openend */
+item.popup.close();
+
+// item file reader
+/* read file in browser
+   @param callback {null, Function}
+   @param type {null, String} - read type ['astext', 'image', 'audio', 'video']
+   @param force {Boolean} - ignore reader cache */
+item.reader.read(callback, type, force);
+				
+// item image editor - !only if editor is enabled
+/* rotate image */
+item.editor.rotate();
+
+/* show cropping tools in the popup */
+item.editor.cropper();
+
+/* save edited image
+   @param callback {null, Function}
+   @param toBlob {Boolean} - save canvas as Blob or just as dataURL?
+   @param mimeType {null, String} - save image format 'image/jpeg' or 'image/png'
+   @param preventThumbnailRender {Boolean} - do not render thumbnail in HTML after save? */
+item.editor.save(callback, asBlob, mimeType, preventThumbnailRender);</code></pre>                </section>
+                <section id="php">
+                    <h2>PHP</h2>
+<p>Fileuploader includes also a PHP class that uploads, validates, removes, sorts, edits the images, creates thumbnails and uploads large files in chunks to server. All this stuff can be also done on the client-side but the server keeps everything safer.</p>
+<p>Our php file upload helper uses the following php-standard extensions:</p>
+<ul class="list-styled">
+    <li><a href="http://php.net/manual/en/book.image.php" target="_blank" rel="nofollow">GD</a></li>
+    <li><a href="http://php.net/manual/en/ref.exif.php" target="_blank" rel="nofollow">Exif</a></li>
+    <li><a href="http://www.php.net/manual/en/ref.fileinfo.php" target="_blank" rel="nofollow">Fileinfo</a></li>
+</ul>
+
+<h3>Installation</h3>
+<p>Copy <b>class.fileuploader.php</b> from <b>src</b> folder to your server.</p>
+
+<h3>How to use</h3>
+<p>Include the <b>class.fileuploader.php</b> into your php file and initialize it by writing in arguments the input file name and the options.</p>
+<pre class="prettyprint"><code data-code="language-php">&lt;?php
+    include('class.fileuploader.php');
+	
+    // initialize the FileUploader
+    $FileUploader = new FileUploader('files', array(
+        // Options will go here
+    ));
+	
+    // call to upload the files
+    $upload = $FileUploader-&gt;upload();
+	
+    if($upload['isSuccess']) {
+        // get the uploaded files
+        $files = $upload['files'];
+    } else {
+        // get the warnings
+        $warnings = $upload['warnings'];
+    }
+?&gt;</code></pre>
+
+<h3>Options</h3>
+<p>All available options are listed below.</p>
+<pre class="prettyprint"><code data-code="language-php">array (
+    // limit of files {null, Number}
+    // also with the preloaded files
+    // if null - has no limits
+    // example: 3
+    'limit' =&gt; null,
+
+    // file's maximal size in MB {null, Number}
+    // also with the preloaded files
+    // if null - has no limits
+    // example: 2
+    'maxSize' =&gt; null,
+
+    // each file's maximal size in MB {null, Number}
+    // if null - has no limits
+    // example: 2
+    'fileMaxSize' =&gt; null,
+
+    // allowed extensions or file types {null, Array}
+    // if null - has no limits
+    // example: ['jpg', 'jpeg', 'png', 'audio/mp3', 'text/plain']
+    'extensions' =&gt; null,
+
+    // check if file input exists ($_FILES[ file_input_name ]) {Boolean}
+    // check if files were choosed (minimum 1 file should be choosed)
+    'required' =&gt; false,
+
+    // upload directory {String}
+    // note that main directory is the directory where you are initializing the FileUploader class
+    // example: '../uploads/'
+    'uploadDir' =&gt; 'uploads/',
+
+    // file title {String, Array}
+    // example: 'name' - original file name
+    // example: 'auto' - random text from 12 letters
+    // example: 'my_custom_filename' - custom file name
+    // example: 'my_custom_filename_{random}' - my_custom_filename_(+ random text from 12 letters)
+    // '{random} {file_name} {file_size} {timestamp} {date} {extension}' - variables that can be used to generate a new file name
+    // example: array('auto', 24) - [0] is a string as in the examples above, [1] is the length of the random string
+    'title' =&gt; 'name',
+	
+    // replace the file with the same name? {Boolean}
+    // if it will be false - will automatically generate a new file name with (1,2,3...) at the end of the file name
+    'replace' =&gt; false,
+
+    // image editor {null, Array}
+    'editor' =&gt; array(
+        // image maxWidth in pixels {null, Number}
+        'maxWidth' =&gt; null,
+        // image maxHeight in pixels {null, Number}
+        'maxHeight' =&gt; null,
+        // crop image {Boolean}
+        'crop' =&gt; false,
+        // image quality after save {Number}
+        'quality' =&gt; 90
+    ),
+	
+    // input with the listed files {Boolean, String}
+    // this list is an input[type=&quot;hidden&quot;]
+    // this list is important to store your files with the attributes and to check which file shouldn't be uploaded or need to be removed
+    // example: true
+    // example: 'custom_listInput_name'
+    'listInput' =&gt; true,
+
+    // preloaded files {null, Array with arrays}
+    // it is important to declare them if you want to check the right limit and maxSize options; by preloaded files; by generating an input
+    // please follow this structure for each file:
+    /* array(
+        &quot;name&quot; =&gt; 'filename1.txt',
+        &quot;type&quot; =&gt; FileUploader::mime_content_type('../uploads/filename1.txt'),
+        &quot;size&quot; =&gt; filesize('../uploads/filename1.txt'),
+        &quot;file&quot; =&gt; '../uploads/filename1.txt', // should the same as on the front-end
+        &quot;relative_file&quot; =&gt; '../uploads/filename1.txt', // use this file by editing
+        &quot;data&quot; =&gt; array(
+            &quot;url&quot; =&gt; 'http://localhost/example/uploads/filename1.txt',
+            &quot;my_own_attribute&quot; =&gt; &quot;my own value&quot;,
+            &quot;listProps&quot; =&gt; array(
+                &quot;file_id&quot; =&gt; 240 // property to be stored in the listInput
+            )
+        )
+    ) */
+    'files' =&gt; null,
+	
+    // move_uploaded_file {function}
+    // prevent default php upload method and use yours
+    // @param $temp_name {String} PHP file temp_name
+    // @param $destination {String} file upload destination
+    // @return {Boolean}
+    'move_uploaded_file' =&gt; function($temp_name, $destination) {
+        return move_uploaded_file($temp_name, $destination);
+    },
+	
+    // validate_file {function}
+    // custom file validation function
+    // @param $file {Array} Fileuploader file array
+    // @param $options {Array} Fileuploader options
+    // @return {Boolean or String}
+    'validate_file' =&gt; function($file, $options) {
+        $isValid = true;
+
+        if ($isValid) {
+            return true;
+        } else {
+            return &quot;Wrong file!&quot;;
+        }
+    }
+)</code></pre>
+
+<h3>Methods</h3>
+<p>All available methods are listed below.</p>
+<pre class="prettyprint"><code data-code="language-php">// get removed list
+// give a String parameter (ex: 'file' or 'name' or 'data.url') to get a file by a custom input attribute. Default is 'file'
+// note that FileUploader will not remove your appended files that were removed on Front-End
+// to remove them, please use this example: 
+// foreach($FileUploader-&gt;getRemovedFiles('file') as $key=&gt;$value) {
+//     unlink('../uploads/' . $value['name']);
+// }
+$FileUploader-&gt;getRemovedFiles();
+
+// call to upload the files
+$upload = $FileUploader-&gt;upload();
+
+// get listInput value
+$FileUploader-&gt;getListInput();
+
+// get the list of the files
+// without parameter it will return an array with appended and uploaded files
+// give a String parameter (ex: 'file' or 'name' or 'data.url') to generate a custom input list of the files
+// example: you can store the files in the MySQL using this function
+// $myFilesForSql = implode('|', $FileUploader-&gt;getFileList('name'));
+// $myFilesForSql = json_encode($FileUploader-&gt;getFileList('name'));
+$FileUploader-&gt;getFileList();
+
+// get the list of the preloaded files
+$FileUploader-&gt;getPreloadedFiles();
+
+// get the list of the uploaded files
+$FileUploader-&gt;getUploadedFiles();
+
+// resize image
+// example replace image: FileUploader::resize($source, $width = 100);
+// example create thumbnail: FileUploader::resize($source, $width = 100, $height = 100, $destination = 'my_custom_thumbnail_name.jpg', $crop = false, $quality = 90, $rotation = 0);
+FileUploader::resize($source, $width = 100, $height = null, $destination = null);
+
+// remove old chunked files
+FileUploader::clean_chunked_files($directory = '../uploads/', $time = '-1 hour');
+
+// get the HTML generated input
+$FileUploader-&gt;generateInput();</code></pre>                </section>
+                <section id="nodejs">
+                    <h2>Node.js</h2>
+<p>Fileuploader includes also a Node.js module that uploads, validates, removes, sorts, edits the images, creates thumbnails and uploads large files in chunks to server. All this stuff can be also done on the client-side but the server keeps everything safer.</p>
+<p>Our module uses some dependencies to provide the features of multipart/form-data upload, reading file's mime type and image editing.</p>
+<ul class="list-styled">
+    <li><a href="https://www.npmjs.com/package/multer" target="_blank" rel="nofollow">multer</a></li>
+    <li><a href="https://www.npmjs.com/package/mime-types" target="_blank" rel="nofollow">mime-types</a></li>
+    <li><a href="https://www.npmjs.com/package/gm" target="_blank" rel="nofollow">gm</a></li>
+</ul>
+
+<h3>Installation</h3>
+<ol>
+    <li>Copy <b>fileuploader.js</b> and it's <b>package.json</b> from <b>src</b> folder to your server.</li>
+    <li>Run <code>npm install</code> in node folder to install all dependencies.</li>
+    <li>(Optional) While using server-side image editing feature (<i>editor option</i>), you will have to download and install <a href="http://www.graphicsmagick.org/" target="_blank" rel="nofollow">GraphicsMagick</a> or in Mac OS X the <a href="http://mxcl.github.io/homebrew/" rel="nofollow">Homebrew</a>.</li>
+</ol>
+
+<h3>How to use</h3>
+<p>Require the <b>fileuploader.js</b> into your app file and initialize it by writing in arguments the input file name, the options, request and response object. We will also use the popular Node.js framework <a href="https://expressjs.com/" target="_blank" rel="nofollow">Express</a>. Don't forget to take a look at the <i>/examples/nodejs/</i> folder.</p>
+<pre class="prettyprint"><code data-code="language-js">const express = require('express')
+const fileuploader = require('fileuploader')
+
+app.post('/upload', function(req, res) {
+    
+    // initialize fileuploader
+    var uploader = fileuploader('files', {
+        // options will go here
+    }, req, res)
+    
+    // call to process the form (req.body) and to upload the files
+    uploader.upload(function(data) {
+    
+        if (data.isSuccess) {
+            var files = data.files;
+        } else {
+            var warnings = data.warnings;
+        }
+            
+        res.end()
+    })
+    
+})
+
+// init server
+app.listen(8000)</code></pre>
+
+<h3>Options</h3>
+<p>All available options are listed below.</p>
+<pre class="prettyprint"><code data-code="language-js">[
+    // limit of files {null, Number}
+    // also with the preloaded files
+    // important to set 1 if file input has no multiple attribute
+    // if null - has no limits
+    // example: 3
+    limit: null,
+
+    // file's maximal size in MB {null, Number}
+    // also with the preloaded files
+    // if null - has no limits
+    // example: 2
+    maxSize: null,
+
+    // each file's maximal size in MB {null, Number}
+    // if null - has no limits
+    // example: 2
+    fileMaxSize: null,
+
+    // allowed extensions or file types {null, Array}
+    // if null - has no limits
+    // example: ['jpg', 'jpeg', 'png', 'audio/mp3', 'text/plain']
+    extensions: null,
+
+    // check if files were choosed (minimum 1 file should be choosed)
+    required: false,
+
+    // upload directory {String}
+    // note that main directory is the directory where you are initializing the fileuploader module
+    // example: '../uploads/'
+    uploadDir: 'uploads/',
+
+    // file title {String, Array}
+    // example: 'name' - original file name
+    // example: 'auto' - random text from 12 letters
+    // example: 'my_custom_filename' - custom file name
+    // example: 'my_custom_filename_{random}' - my_custom_filename_(+ random text from 12 letters)
+    // '{random} {file_name} {file_size} {timestamp} {date} {extension}' - variables that can be used to generate a new file name
+    // example: ['auto', 24] - [0] is a string as in the examples above, [1] is the length of the random string
+    title: ['auto', 12],
+	
+    // replace the file with the same name? {Boolean}
+    // if it will be false - will automatically generate a new file name with (1,2,3...) at the end of the file name
+    replace: false,
+
+    // image editor {null, Array}
+    editor: {
+        // image maxWidth in pixels {null, Number}
+        maxWidth: null,
+        // image maxHeight in pixels {null, Number}
+        maxHeight: null,
+        // crop image {Boolean}
+        crop: false,
+        // image quality after save {Number}
+        quality: 90
+    },
+	
+    // input with the listed files {Boolean, String}
+    // this list is an input[type=&quot;hidden&quot;]
+    // this list is important to store your files with the attributes and to check which file shouldn't be uploaded or need to be removed
+    // example: true
+    // example: 'custom_listInput_name'
+    listInput: true,
+
+    // preloaded files {null, Array with Objects}
+    // it is important to declare them if you want to check the right limit and maxSize options; by preloaded files; by generating an input
+    // please follow this structure for each file:
+    /* [{
+        name: 'filename1.txt',
+        type: null,
+        size: fs.statSync('filename1.txt').size,
+        file: 'uploads/filename1.txt', // should the same as on the front-end
+        relative_file: 'uploads/filename1.txt', // (optional) use this file by editing
+        data: [
+            url: 'http://localhost/example/uploads/filename1.txt', // (optional)
+            listProps: [
+                file_id: 240 // property to be stored in the listInput
+            ] // (optional)
+            my_own_attribute: 'my own value',
+        ]
+    }] */
+    'files': null,
+	
+    // move_uploaded_file {function}
+    // prevent default upload method and use yours
+    // fileuploader will delete at the end the file.tmp file
+    // @return {Boolean}
+    move_uploaded_file: function(file) {
+        fs.renameSync(file.tmp, file.file);
+        
+        return true;
+    },
+	
+    // validate_file {function}
+    // custom file validation function
+    // @param file {Object} Fileuploader file object
+    // @param options {Object} Fileuploader options
+    // @return {Boolean or String}
+    validate_file: function(file, options) {
+        var isValid = true;
+
+        return isValid ? true : 'Wrong file!';
+    }
+]</code></pre>
+
+<h3>Methods</h3>
+<p>All available methods are listed below.</p>
+<pre class="prettyprint"><code data-code="language-js">// get removed list
+// give a String parameter (ex: 'file' or 'name' or 'data.url') to get a file by a custom input attribute. Default is 'file'
+// note that FileUploader will not remove your preloaded files that were removed on front-end
+// to remove them, please use this example: 
+// uploader.getRemovedFiles().forEach(function(item, index) {
+//     fs.unlink(item.relative_path || item.file, function(err) {});
+// })
+uploader.getRemovedFiles();
+
+// call to process the form and to upload the files
+uploader.upload();
+
+// get listInput value
+uploader.getListInput();
+
+// get the list of the files
+// without parameter it will return an array with appended and uploaded files
+// give a String parameter (ex: 'file' or 'name' or 'data.url') to generate a custom input list of the files
+// example: you can store the files in the DB using this function
+// var myFilesInlineList = uploader.getFileList('name').join('|');
+// var myFilesJSONList = JSON.stringify(uploader.getFileList('name'));
+uploader.getFileList();
+
+// get the list of the preloaded files
+uploader.getPreloadedFiles();
+
+// get the list of the uploaded files
+uploader.getUploadedFiles();
+
+// resize an image
+// thumbnail example item = data.files[0]: uploader.resize(item.file, 100, 100, '../uploads/thumbs/' + item.name, true)
+// full example: uploader.resize(filename = 'uploads/file.jpg', width = 400, height = 400, destination = 'uploads/file.jpg', crop = true, quality = 90, rotation = 180, callback = function() {})
+uploader.resize('uploads/file.jpg', 800);
+
+// remove the old unused chunked files
+uploader.cleanChunkedFiles('uploads/', 3600000 /* -1 hour in milliseconds */);
+
+// get the HTML generated input
+uploader.generateInput();</code></pre>                </section>
+                <section id="amazons3">
+                    <h2>Amazon S3</h2>
+<p>PHP Amazon S3 file upload class is included. Upload Directly to Amazon S3 and manage objects in your buckets using our helper.</p>
+
+<h3>Configuration</h3>
+<hr>
+<p>Basic Amazon S3 Bucket configuration instructions.</p>
+<ol>
+    <li>
+        Create an IAM user
+        <ol type="a">
+            <li>Access Services menu > IAM > Users > Add user</li>
+            <li>Give an <i>user name</i> and select <i>Programmatic access</i> as Access type</li>
+            <li>Permissions > Attach existing policies directly > select <i>AmazonS3FullAccess</i></li>
+            <li>Copy the <i>User ARN</i></li>
+        </ol>
+    </li>
+    <li>
+        Create an access key
+        <ol type="a">
+            <li>Open the IAM user > Security credentials > Create access key</li>
+            <li>Copy <i>Key ID</i> and <i>Secret</i></li>
+        </ol>
+    </li>
+    <li>Create a bucket</li>
+    <li>
+        Configurate the new bucket
+        
+        <ol type="a">
+            <li>
+                Permissions > <i>Bucket policy (replace &lt;&lt; &gt;&gt; with your values)</i>
+                <pre class="prettyprint"><code data-code="language-js">{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Id&quot;: &quot;Policy1488494182833&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;MakeItPublic&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: {
+                &quot;AWS&quot;: &quot;&lt;&lt; Copied User ARN &gt;&gt;&quot;
+            },
+            &quot;Action&quot;: &quot;s3:*&quot;,
+            &quot;Resource&quot;: [
+                &quot;arn:aws:s3:::&lt;&lt; Bucket name &gt;&gt;&quot;,
+                &quot;arn:aws:s3:::&lt;&lt; Bucket name &gt;&gt;/*&quot;
+            ]
+        }
+    ]
+}</code></pre>
+            </li>
+            <li>
+                CORS configuration
+                <pre class="prettyprint"><code data-code="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;CORSConfiguration xmlns=&quot;http://s3.amazonaws.com/doc/2006-03-01/&quot;&gt;
+    &lt;CORSRule&gt;
+        &lt;AllowedOrigin&gt;*&lt;/AllowedOrigin&gt;
+        &lt;AllowedMethod&gt;GET&lt;/AllowedMethod&gt;
+        &lt;AllowedMethod&gt;POST&lt;/AllowedMethod&gt;
+        &lt;AllowedMethod&gt;PUT&lt;/AllowedMethod&gt;
+        &lt;MaxAgeSeconds&gt;3000&lt;/MaxAgeSeconds&gt;
+        &lt;AllowedHeader&gt;Authorization&lt;/AllowedHeader&gt;
+    &lt;/CORSRule&gt;
+&lt;/CORSConfiguration&gt;</code></pre>
+            </li>
+        </ol>
+    </li>
+</ol>
+
+<h3>PHP</h3>
+<hr>
+<h3>Installation</h3>
+<ol>
+    <li>Copy <b>fileuploader.s3.php</b> from <b>src/thirdparty/s3/php/</b> folder to your server.</li>
+    <li>Install official AWS SDK (<a href="https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html" target="_blank" rel="nofollow">?</a>)
+        <ol type="a">
+            <li>using <code>composer require aws/aws-sdk-php</code></li>
+            <li>or <a href="https://docs.aws.amazon.com/aws-sdk-php/v3/download/aws.zip" target="_blank" rel="nofollow" download>download ZIP</a> file</li>
+        </ol>
+</ol>
+
+<h3>How to use</h3>
+<p>Include the <b>class.fileuploader.php</b>, <b>fileuploader.s3.php</b> and <b>aws autoloader</b> into your php file and initialize it like basic Fileuploader by writing in arguments the input file name and the options. <br> This time you will have to create a <code>Fileuploader::$S3</code> object and to add the <code>auth</code> array in the options. <br> Don't forget to take a look at the <i>/examples/thirdparty/s3/</i> folder.</p>
+<pre class="prettyprint"><code data-code="language-php">require 'vendor/autoload.php';
+require 'class.fileuploader.php';
+require 'fileuploader.s3.php';
+
+$FileUploader = new FileUploader::$S3('files', array(
+    'uploadDir' =&gt; '../uploads/',
+    
+    // S3 credentials
+    'auth' =&gt; [
+        'bucket' =&gt; 'my-bucket',
+        'folder' =&gt; '/',
+        'key' =&gt; 'ima_key',
+        'secret' =&gt; 'ima_secret',
+        'region' =&gt; 'eu-central-1'
+    ]
+));
+
+// call to upload the files
+$data = $FileUploader-&gt;upload();
+
+// if uploaded and success
+if($data['isSuccess']) {
+    echo '&lt;pre&gt;';
+    print_r($FileUploader-&gt;getFileList());
+    echo '&lt;/pre&gt;';
+}</code></pre>
+
+<h4>Or call it separately</h4>
+<pre class="prettyprint"><code data-code="language-php">require 'vendor/autoload.php';
+require 'class.fileuploader.php';
+require 'fileuploader.s3.php';
+
+$S3Client = new FileUploader_S3(array(
+    'bucket' =&gt; 'my-bucket',
+    'folder' =&gt; '/',
+    'key' =&gt; 'ima_key',
+    'secret' =&gt; 'ima_secret',
+    'region' =&gt; 'eu-central-1'
+));</code></pre>
+
+<h3>Methods</h3>
+<p>All available methods are listed below.</p>
+<pre class="prettyprint"><code data-code="language-php">// get S3 Client
+$FileUploader-&gt;getClient();
+
+// create a bucket
+$FileUploader-&gt;createBucket($bucket = 'bucket-name', $location = 'us-east-1', $acl = 'private');
+
+// set current bucket
+$FileUploader-&gt;setBucket($bucket = 'bucket-name');
+
+// check if bucket exists
+$FileUploader-&gt;bucketExists($bucket = 'bucket-name');
+
+// list the buckets' names
+$FileUploader-&gt;listBuckets();
+
+// create a folder
+$FileUploader-&gt;createFolder($path = 'new_folder/', $acl = 'public-read');
+
+// set current folder
+$FileUploader-&gt;setFolder($path = 'my_folder/');
+
+// check if folder exists
+$FileUploader-&gt;folderExists($path = 'my_folder/');
+
+// list the folders
+$FileUploader-&gt;listFolders($path = null);
+
+// delete a folder
+$FileUploader-&gt;deleteFolder($path = 'my_folder/');
+
+// upload a file
+$FileUploader-&gt;uploadFile($tmp = 'path_to_file.jpg', $file = 'file_on_s3.jpg', $acl = 'public-read');
+
+// check if a file exists
+$FileUploader-&gt;fileExists($file = 'file_on_s3.jpg');
+
+// get file public link
+$FileUploader-&gt;getFileUrl($file = 'file_on_s3.jpg');
+
+// list the files
+$FileUploader-&gt;listFiles($path = null);
+
+// download a file to path
+$FileUploader-&gt;downloadFile($file = 'file_on_s3.jpg', $destination = 'path_to_file.jpg');
+
+// delete a file
+$FileUploader-&gt;deleteFile($file = 'file_on_s3.jpg');</code></pre>                </section>
+                <section id="license">
+                    <h2>License</h2>
+
+<p>A regular license is required if you are using this plugin in one of your personal projects (including sites for your customers) and a commercial license for all commercial applications (including sites, themes and apps you plan to sell).</p>
+<p>Sharing the source code or selling it particullary is not allowed.</p>
+<p>Keep the license and copyright notice included in Fileuploader's CSS and JavaScript files when you use them in your projects.</p>                </section>
+                <section id="changelog">
+                    <h2>Changelog</h2>
+<p>See the record of all changes made to the project.</p>
+
+<div class="changelog-content">
+    <h3 id="changelog-2.0">v2.1</h3>
+    <ul>
+        <li>Added node.js module</li>
+        <li>Added Amazon S3 class</li>
+        <li>Added size and position information by cropping an image</li>
+        <li>Fixed <code>item.upload.data</code> object</li>
+    </ul>
+    <h3 id="changelog-2.0">v2.0</h3>
+    <ul>
+        <li>Redesign!</li>
+        <li>Added dropIn theme</li>
+        <li>Added jquery.fileuploader.sass</li>
+        <li>Improved documentation</li>
+        <li>Fix addMore mode with limit to one file</li>
+        <li>Improved editor in the PHP</li>
+        <li>listProps are now available in the items array in PHP</li>
+        <li>fileuploader font with icons</li>
+        <li>dist and src folder in the download zip</li>
+    </ul>
+    <h3 id="changelog-1.4">v1.4</h3>
+    <ul>
+        <li>Fixed Exif orientation issue for images (e.g. on iPhone and Samsung)</li>
+        <li><code>thumbnails.videoThumbnail</code> option will allow you to choose if you want or not to load thumbnails for video files in browser</li>
+        <li>Added <code>file.data.thumbnail</code> - now you can load 2 different images for thumbnail and popup (now fileuploader is loading faster)</li>
+        <li>Added <code>api.update(item, data)</code> method - now you can update an item in the list with the new data</li>
+        <li>Some design changes for the popup - now you can also append the popup to the body</li>
+        <li>View all type of file in the popup (remove the <code>file-has-popup</code> class for an item to disable the preview)</li>
+        <li>Added arrows features for the popup</li>
+        <li>File reader improvements - now you can also set the reader timeout for a file</li>
+        <li><code>item.renderThumbnail(true)</code> will now read again the item.file and will update the thumbnail and the popup</li>
+        <li>Drag&amp;Drop feature in a form example</li>
+    </ul>
+    <h3 id="changelog-1.3">v1.3</h3>
+    <ul>
+        <li>Image editor feature on front-End. Now you can open a popup and edit the images (click on the thumbnail).
+            <ul>
+                <li>added <code>editor</code> option</li>
+                <li><code>item.editor.rotate(degrees)</code> method is available</li>
+                <li><code>item.editor.rotation</code> value is available, only after calling the method above</li>
+                <li><code>item.editor.cropper(data)</code> method is available</li>
+                <li><code>item.editor.crop</code> value is available, only after calling the method above</li>
+                <li><code>item.editor.save(callback, asBlob, mimeType, preventThumbnailRender)</code> method is available</li>
+            </ul>
+        </li>
+        <li>Image editor feature on back-End (we use it to edit the images and to create thumbnails)
+            <ul>
+                <li>added <code>editor</code> option</li>
+                <li><code>FileUploader::resize</code> method is now available</li>
+            </ul>
+        </li>
+        <li>File sorter feature. Now you can sort by drag&amp;drop the files
+            <ul>
+                <li>add <code>sorter</code> option</li>
+            </ul>
+        </li>
+        <li>List input has now Array-Object format. Now you can send to Back-end your own file parameters (we are using now also for the editor). Add custom values in <code>item.data.listProps</code> to have them in the list input</li>
+        <li><code>item.upload.resend()</code> method is now available to resend an ajax request</li>
+        <li>Improved the image resizer. Images that are resized for canvas in browser have a high quality now</li>
+        <li>Added <code>upload.chunk</code> option. Slice large files in chunks and upload them to server</li>
+        <li>Added <code>api.add(data, type, custom_name)</code> api method. Create a file from your string or dataURI and upload to server. Now you can upload WebCam photos or other file types converted into dataURI in browser</li>
+        <li>Popup redesign</li>
+        <li>Popup text files preview - set file format to <code>astext</code> to get it</li>
+        <li><code>item.reader.ratio</code> - image and video ratio</li>
+        <li><code>assets.pxToRatio(width, height)</code> helper function</li>
+        <li><code>assets.ratioToPx(width, height, ratio)</code> helper function</li>
+        <li><code>item.renderImage</code> - is now <span class="text-danger">deprecated</span>! Please use <code>item.renderThumbnail</code> instead</li>
+        <li><code>item.data.readerSkip = true</code> to skip file from rendering</li>
+        <li><code>item.data.readerCrossOrigin = 'anonymous'</code> to solve the cross-origin issue</li>
+        <li><code>captions.close</code> - is now <span class="text-danger">deprecated</span>! Please use <code>captions.cancel</code> instead</li>
+        <li><code>thumbnails.onImageLoaded</code> - the callback is triggered now also when the reading of an image failed. Now you can also validate the images</li>
+        <li>CSS - brighter main color</li>
+        <li>Added jquery.fileuploader.min.css file</li>
+        <li>Fixed validaiton check on the php side</li>
+        <li>Improvements and fixes</li>
+    </ul>
+    <h3 id="changelog-1.2">v1.2</h3>
+    <ul>
+        <li>Added Popup feature. Now you can open a popup for each item (click on the thumbnail).
+            <ul>
+                <li>Popup preview for photo, video and audio files</li>
+                <li>
+                    <code>thumbnails.item</code> and <code>thumbnails.item2</code> the line was changed to <code>&lt;div class="column-thumbnail"&gt;${image}&lt;span class="fileuploader-action-popup"&gt;&lt;/span&gt;&lt;/div&gt;</code>
+                </li>
+                <li>added <code>thumbnails.popup</code> option</li>
+                <li>added <code>thumbnails._selectors.popup</code> and <code>thumbnails._selectors.popup_open</code> option</li>
+                <li>
+                    <code>item.popup.open</code> method is available. After calling this function, the following values are available:</li>
+                <li>
+                    <code>item.popup.html</code> - Popup HTML element</li>
+                <li>
+                    <code>item.popup.close()</code> - Popup close method</li>
+            </ul>
+        </li>
+        <li>Added Reader feature. Now you can read each type of file
+            <ul>
+                <li>
+                    <code>item.reader.read(callback)</code> method is now available. After calling this function, the following values are available:</li>
+                <li>
+                    <code>iteam.reader.node</code> - img, video and audio HTML node</li>
+                <li>
+                    <code>item.reader.src</code> - file reader result</li>
+                <li>
+                    <code>item.reader.duration</code> - video and audio duration</li>
+                <li>
+                    <code>item.reader.duration2</code> - video and audio formatted duration</li>
+                <li>
+                    <code>item.reader.width</code> - img and video width</li>
+                <li>
+                    <code>item.reader.height</code> - img and video height</li>
+                <li>
+                    <code>item.reader.frame</code> - video thumbnail</li>
+            </ul>
+        </li>
+        <li>Improved captions for multilangual templates.
+            <ul>
+                <li>added <code>captions.close</code>
+                </li>
+                <li>added <code>captions.download</code>
+                </li>
+                <li>added <code>captions.remove</code>
+                </li>
+            </ul>
+        </li>
+        <li>The <code>thumbnails.item</code> and <code>thumbnails.item2</code> were some words like Download and Remove replaced with <code>${captions.download}</code> and <code>${captions.remove}</code>
+        </li>
+        <li>Classname <code>fileupload-no-thumbnail</code> was renamed to <code>fileuploader-no-thumbnail</code>
+        </li>
+        <li>Item thumbnail (canvas or img) are now aligned to the center of parent</li>
+        <li>Improved Ajax progress handling. Now the progressbar will stay to 99% until the success callback will come.</li>
+        <li>
+            <code>item.renderThumbnail(src)</code> - now you can send a custom image src to render the thumbnail</li>
+        <li>Fixed iPhone issue: "File with the name image.jpg is already selected."</li>
+        <li>Improvements and fixes</li>
+    </ul>
+    <h3 id="changelog-1.0.0.5">v1.0.0.5</h3>
+    <ul>
+        <li>Colored icon in the Drag&amp;drop example</li>
+        <li>Fixed validator issue for AddMore option (<a href="https://github.com/innostudio/fileuploader/issues/10" target="_blank">#10</a>)</li>
+        <li>Fixed Clipboardpaste name issue</li>
+        <li>Added id key for file data (id is a timestamp that can be used in the templates)</li>
+        <li>Improved onListInput callback (now you don't need to create the list, it comes as a function property. Return the list to get the changes)</li>
+        <li>updateFileList in Api functions (trigger file list updating)</li>
+        <li>uploadStart in Api functions (trigger file upload for all files synchron/asynchron)</li>
+    </ul>
+    <h3 id="changelog-1.0.0.4">v1.0.0.4</h3>
+    <ul>
+        <li>Removed some commas in js script</li>
+        <li>Added Drag&amp;Drop feature in Chrome also for non-upload inputs</li>
+    </ul>
+    <h3>v1.0.0.3</h3>
+    <ul>
+        <li>Fixed &lt;!DOCTYPE&gt; tag in all HTML documents</li>
+        <li>Fixed img styles for thumbnails example</li>
+    </ul>
+    <h3 id="changelog-1.0.0.2">v1.0.0.2</h3>
+    <ul>
+        <li>Fixed Safari issue (<a href="https://github.com/innostudio/fileuploader/issues/2" target="_blank">#2</a>)</li>
+    </ul>
+    <h3 id="changelog-1.0">v1.0</h3>
+    <ul>
+        <li>Initial commit</li>
+    </ul>
+</div>                </section>
+                <div class="footer">
+    <p><a href="https://innostudio.de/fileuploader/">@Fileuploader</a> - Designed and built with passion by <a href="https://innostudio.de/" target="_blank">Innostudio.de</a></p>
+</div>            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,181 @@
+// Default slider
+%bv_hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+%filled_obj {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-slider {
+  position: relative;
+  width: 100%;
+  height: 38vw;
+  min-height: 8vw;
+  margin-bottom: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1.2s ease;
+  &.slick-initialized {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.slick-slide {
+  position: relative;
+  height: 38vw;
+  @extend %bv_hidden;
+  &::before {
+    @extend %filled_obj;
+    @extend %bv_hidden;
+    background-color: #000;
+    opacity: .3;
+    z-index: 1;
+}
+  video {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+  iframe {
+    position: relative;
+    pointer-events: none;
+  }
+  figure {
+    position: relative;
+    height: 100%;
+  }
+  .slide-image {
+    opacity: 0;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: all .8s ease;
+    &.show {
+      opacity: 1;
+    }
+  }
+  .image-entity {
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .slide-media {
+    animation: slideOut .4s cubic-bezier(0.4, 0.29, 0.01, 1);
+  }
+  &.slick-active {
+    z-index: 1;
+    .slide-media {
+      animation: slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1);
+    }
+    .caption {
+      z-index: 1;
+      transition: all .7s cubic-bezier(0.32, 0.34, 0, 1.62) .6s;
+      position: absolute;
+      background: rgba($white, 0.9);
+      max-width: 21.875rem;
+      margin: 0;
+      padding: 0.75rem 1rem 1rem;
+      transition: all .3s ease;
+      @extend %bv_hidden;
+      &.top-left {
+        top: 2.5rem;
+        left: 2.5rem;
+      }
+      &.top-center {
+        top: 2.5rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      &.top-right {
+        top: 2.5rem;
+        right: 2.5rem;
+      }
+      &.center-left {
+        top: 50%;
+        left: 2.5rem;
+        transform: translate(0, -50%);
+      }
+      &.center-center {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &.center-right {
+        top: 50%;
+        right: 2.5rem;
+        transform: translate(0, -50%);
+      }
+      &.bottom-left {
+        bottom: 2.5rem;
+        left: 2.5rem;
+      }
+      &.bottom-center {
+        bottom: 2.5rem;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      &.bottom-right {
+        bottom: 2.5rem;
+        right: 2.5rem;
+      }
+    }
+  }
+}
+
+.slick-dots {
+  display: flex;
+  bottom: 0.625em;
+  left: 50%;
+  justify-content: center;
+  transform: translate(-50%, 0);
+  li {
+    margin: 0;
+    &.slick-active {
+      button:before {
+        opacity: 1;
+      }
+    }
+    &:hover {
+      button:before {
+        opacity: 0.75;
+      }
+    }
+    button:before {
+      font-size: 12px;
+      opacity: 0.5;
+      color: $white;
+    }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    filter: blur(15px);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+      filter: blur(0);
+  }
+  to {
+      filter: blur(15px);
+  }
+}

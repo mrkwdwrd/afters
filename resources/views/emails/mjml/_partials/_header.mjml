@@ -1,0 +1,7 @@
+<mj-section background-color="#0A2636">
+  <mj-column>
+    <mj-text>
+        {!! env('APP_NAME') !!}
+    </mj-text>
+  </mj-column>
+</mj-section>

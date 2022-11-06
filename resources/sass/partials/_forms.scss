@@ -1,0 +1,199 @@
+form {
+    .full {
+        width: 100%;
+    }
+    .half {
+        width: 50%;
+        padding: 0 0.5rem;
+
+        &:nth-of-type(even) {
+            padding-right: 0;
+        }
+
+        &:nth-of-type(odd) {
+            padding-left: 0;
+        }
+
+        &.offset-right {
+            margin-right: 50%;
+        }
+
+        &.offset-left {
+            margin-left: 50%;
+        }
+    }
+}
+
+fieldset {
+    margin: 0;
+    padding: 5px;
+    border: none;
+}
+
+label {
+    display: table;
+    font-size: 0.75rem;
+    font-weight: 200;
+    input {
+        margin-right: 1em;
+    }
+}
+
+button,
+input[type="submit"] {
+    margin: 2em auto 0;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+    display: block;
+    font-family: $font;
+    background: $white;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border: 1px solid rgba($black, 0.5);
+    resize: vertical;
+    outline: none;
+    color: $input-font;
+    clear: left;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+select {
+    display: block;
+    font-family: $font;
+    background: $input-bg url('/img/arrow.gif') no-repeat;
+    background-position: right 0.75rem top 50%;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border: 1px solid $input-border;
+    text-overflow: ellipsis;
+    appearance: none;
+    color: $input-font;
+    clear: left;
+}
+
+
+// Checkbox (add class="checkbox" to the checkbox type input)
+.checkbox {
+    position: absolute;
+    opacity: 0;
+
+    & + label {
+        position: relative;
+        padding: 0;
+        cursor: pointer;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            background: $white;
+            width: 16px;
+            height: 16px;
+            margin-right: 0.75rem;
+            border: 1px solid $primary;
+            vertical-align: text-top;
+        }
+    }
+
+    &:hover + label:before {
+        background: $primary;
+    }
+
+    &:focus + label:before {
+        box-shadow: 0 0 0 3px rgba($black, 0.12);
+    }
+
+    &:checked {
+        & + label {
+            &:before {
+                background: $primary;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 8px; left: 4px;
+                background: $white;
+                width: 2px;
+                height: 2px;
+                box-shadow: 2px 0 0 $white,
+                            4px 0 0 $white,
+                            4px -2px 0 $white,
+                            4px -4px 0 $white,
+                            4px -6px 0 $white,
+                            4px -8px 0 $white;
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &:disabled {
+        & + label {
+            cursor: auto;
+            color: $white;
+
+            &:before {
+                background: $light-grey;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+
+// Radio Input
+
+[type="radio"] {
+    position: absolute;
+    left: -9999px;
+
+    &:checked {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    &:not(:checked) {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    & + label {
+        display: inline-block;
+        position: relative;
+        padding-left: 25px;
+        line-height: 20px;
+        cursor: pointer;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            background: $white;
+            width: 16px;
+            height: 16px;
+            border-radius: 100%;
+            border: 1px solid $primary;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 3px; left: 3px;
+            background: $primary;
+            width: 12px;
+            height: 12px;
+            transition: all 0.3s ease;
+            border-radius: 100%;
+        }
+    }
+}

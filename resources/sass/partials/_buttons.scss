@@ -1,0 +1,46 @@
+button, .button {
+    display: table;
+    padding: $btn-padding;
+    transition: .2s ease-in-out;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    letter-spacing: 1.2px;
+    line-height: inherit;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid $primary;
+    color: inherit;
+
+    &:hover {
+        transition: .2s ease-in-out;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.primary {
+        background: $primary;
+        color: $white;
+
+        &:hover {
+
+        }
+    }
+
+    &.border {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px $primary;
+        border: none;
+        color: $primary;
+
+        &:hover {
+            background: $primary;
+            color: $white;
+        }
+    }
+}

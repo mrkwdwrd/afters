@@ -1,0 +1,85 @@
+// Slick
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+
+// SweetAlert2
+@import "~sweetalert2/src/sweetalert2.scss";
+
+// Selectize
+@import "~selectize/dist/css/selectize.css";
+
+
+// Baseline styles for Froala uploads/images
+
+.fr-file {
+    display: inline-block;
+    font-style: normal;
+    font-size: 0.9em;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+
+    &:before {
+        background-image: url(/img/download.svg);
+        background-size: 30px 30px;
+        background-repeat: no-repeat;
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        padding-right: 1em;
+        vertical-align: middle;
+    }
+}
+
+// Image display: 'Break Text'
+img.fr-dib {
+    // Align: 'None'
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    &.fr-fil {
+        // Align: 'Left'
+        margin-left: 0;
+        clear: right;
+    }
+    &.fr-fir {
+        // Align: 'Right'
+        margin-right: 0;
+        clear: left;
+    }
+}
+
+// Image display: 'Inline'
+img.fr-dii {
+    // Align: 'None'
+    display: inline-block;
+    &.fr-fil {
+        // Align: 'Left'
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    &.fr-fir {
+        // Align: 'Right'
+        float: right;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+// Image style: 'Rounded'
+img.fr-rounded {
+    border-radius: 10px;
+}
+
+// Image style: 'Bordered'
+img.fr-bordered {
+    border: solid 5px;
+}
+
+// Image style: 'Shadow'
+img.fr-shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 1px 1px rgba(0, 0, 0, .16);
+}
