@@ -305,6 +305,8 @@ main {
 }
 
 .content-block {
+    img {
+        max-width: 100%;
     &.cols-2 {
         display: flex;
         flex-wrap: wrap;
