@@ -67,5 +67,6 @@
                 }, 1000);
             });
 			</script>
+            <a rel="me" href="https://mastodon.au/@kid_genius" style="display:none">Mastodon</a>
 	</body>
 </html>
