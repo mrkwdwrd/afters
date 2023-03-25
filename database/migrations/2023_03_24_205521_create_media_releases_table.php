@@ -17,8 +17,11 @@ class CreateMediaReleasesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug')->unique();
-            $table->text('content');
+            $table->string('subtitle')->nullable();
+            $table->text('content')->nullable();
+            $table->text('embed')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
