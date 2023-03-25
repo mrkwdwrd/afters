@@ -45,6 +45,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.'], fu
         }
     });
 });
+Route::group(['prefix' => 'media', 'namespace' => 'Media', 'as' => 'media.'], function () {
+    Route::view('placeholders', 'media.show');
+});
 
 Auth::routes();
 

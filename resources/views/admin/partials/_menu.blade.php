@@ -103,12 +103,12 @@
     </a>
 </li> --}}
 
-<li>
+{{-- <li>
     <a href="{!! url('admin/shipping') !!}" title="Shipping">
         <i class="fa fa-lg fa-fw fa-truck"></i>
         Shipping Methods
     </a>
-</li>
+</li> --}}
 
 @if(env('APP_ENV') === 'local')
     <li>
