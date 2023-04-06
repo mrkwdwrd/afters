@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
-{!! Form::open(['route' => ['admin.media-releases.update', $mediaRelease->id], 'method' => 'POST',  'enctype' => 'multipart/form-data']) !!}
+{!! Form::model($mediaRelease, ['route' => ['admin.media-releases.update', $mediaRelease->id], 'method' => 'POST',  'enctype' => 'multipart/form-data']) !!}
     <div class="section-head">
         <div class="content">
             <h2 class="mb-2">Edit media release</h2>
@@ -36,7 +36,7 @@
                     {!! Form::textarea('content', null, ['class' => 'field-input froala_editor', 'placeholder' => 'Content']) !!}
                 </fieldset>
 
-                <fieldset class="w-full mb-2 px-1">
+                <fieldset class="w-1/2 mb-2 px-1">
                     {!! Form::label('embed', 'Embed Code', ['class' => 'field-label']) !!}
                     {!! Form::textarea('embed', null, ['class' => 'field-input', 'placeholder' => 'Embed']) !!}
                 </fieldset>

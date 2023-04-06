@@ -832,7 +832,9 @@ blockquote {
             max-width: 980px;
 
             header {
+                margin-top: 40px;
                 margin-bottom: 80px;
+                text-align: center;
             }
 
             .media {
@@ -849,10 +851,7 @@ blockquote {
                     margin: 40px auto;
                 }
 
-
-
                 .soundcloud {
-
                     &>div * {
                         all: unset;
                     }
@@ -869,6 +868,33 @@ blockquote {
 
                         &:hover {
                             background-color: #77A5AA;
+                        }
+                    }
+                }
+            }
+
+            .content {
+                a {
+                    display: inline;
+                    color: #77A5AA;
+                    text-decoration: underline;
+                    font-weight: inherit;
+                    text-transform: inherit;
+                    margin: 0;
+
+                    &:hover {
+                        color: $black;
+                    }
+                }
+
+                .shows {
+                    margin-top: 2em;
+
+                    ul {
+                        list-style: none;
+
+                        li {
+                            margin: 1em 0;
                         }
                     }
                 }

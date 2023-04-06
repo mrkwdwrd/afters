@@ -5,6 +5,13 @@
     </a>
 </li>
 
+<li>
+    <a href="{!! url('admin/media-releases') !!}" title="Media Releases">
+        <i class="fa fa-lg fa-fw fa-file-o"></i>
+        Media Releases
+    </a>
+</li>
+
 {{-- <li>
     <a href="{!! url('admin/galleries') !!}" title="Galleris">
         <i class="fa fa-lg fa-fw fa-image"></i>
